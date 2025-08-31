@@ -1,11 +1,15 @@
-# Welcome to your Jupyter Book
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+# Welcome to Herly Nabila Jupyter Book
+Ini adalah Jupyter Book Herly Nabila yang berisi tentang materi Proyek Sain Data Semester 5
 
-Check out the content pages bundled with this sample book to see more.
+Mata kuliah Proyek Sains Data adalah sebuah kegiatan terstruktur untuk mengumpulkan, mengolah, menganalisis, dan memodelkan data dengan tujuan menghasilkan insight (wawasan), prediksi, atau solusi yang bisa digunakan dalam pengambilan keputusan.
 
-```{tableofcontents}
-```
+Semoga materi ini dapat bermanfaat bagi para pembaca
+
+NAMA    : HERLY NABILA SAHQI PUTRI WANDANI
+
+NIM     : 230411100022
+
+PRODI   : TEKNIK INFORMATIKA
+
+EMAIL   : herlynabila75@gmail.com 
