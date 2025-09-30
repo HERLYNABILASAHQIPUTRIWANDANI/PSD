@@ -385,12 +385,31 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-data-simpan-di-mysql">Download data, simpan di MYSQL</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-library">Installing library</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghubungkan-dan-menginisialisasi-dataset-awal">Menghubungkan dan menginisialisasi dataset awal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data-dengan-pca">Visualisasi Data dengan PCA</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penyeimbangan-data">Penyeimbangan Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smote">SMOTE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adasyn">ADASYN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data-dengan-pca">Visualisasi Data dengan PCA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jumlah-data-tiap-kelas">Jumlah data tiap kelas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-data-menggunakan-naive-bayes">Klasifikasi data menggunakan naive bayes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-data-menggunakan-random-forest">Klasifikasi data menggunakan random forest</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-data-menggunakan-esemble-bagging">Klasifikasi data menggunakan esemble bagging</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penyeimbangan-data">Penyeimbangan Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smote">SMOTE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-sebelum-dan-sesudah-smote">Perbandingan sebelum dan sesudah SMOTE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-data-menggunakan-naive-bayes-setelah-di-lakukan-smote">Klasifikasi data menggunakan naive bayes setelah di lakukan smote</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-data-menggunakan-random-forest-setelah-dilakukan-smote">Klasifikasi data menggunakan random forest setelah dilakukan smote</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-data-menggunakan-esemble-bagging-setelah-dilakukan-smote">Klasifikasi data menggunakan esemble bagging setelah dilakukan smote</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adasyn">ADASYN</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-data-sebelum-dan-setelah-di-adasyn">Perbandingan data sebelum dan setelah di adasyn</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-data-menggunakan-naive-bayes-setelah-dilakukan-adasyn">Klasifikasi data menggunakan naive bayes setelah dilakukan adasyn</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-data-menggunakan-random-forest-setelah-dilakukan-adasyn">Klasifikasi data menggunakan random forest setelah dilakukan adasyn</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-data-menggunakan-esemble-bagging-setelah-dilakukan-adasyn">Klasifikasi data menggunakan esemble bagging setelah dilakukan adasyn</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-akurasi-data-random-forest">Visualisasi akurasi data Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-akurasi-data-naive-bayes">Visualisasi akurasi data Naive Bayes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-akurasi-data-esemble-bagging">Visualisasi akurasi data Esemble Bagging</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data-akhir">Visualisasi data akhir</a></li>
 </ul>
             </nav>
@@ -431,18 +450,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting mysql-connector-python
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading mysql_connector_python-9.4.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (7.5 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting imbalanced-learn
-  Using cached imbalanced_learn-0.14.0-py3-none-any.whl.metadata (8.8 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: mysql-connector-python in /usr/local/python/3.12.1/lib/python3.12/site-packages (9.4.0)
+Requirement already satisfied: imbalanced-learn in /usr/local/python/3.12.1/lib/python3.12/site-packages (0.14.0)
 Requirement already satisfied: scikit-learn in /home/codespace/.local/lib/python3.12/site-packages (1.7.0)
 Requirement already satisfied: matplotlib in /home/codespace/.local/lib/python3.12/site-packages (3.10.3)
 Requirement already satisfied: seaborn in /home/codespace/.local/lib/python3.12/site-packages (0.13.2)
-Requirement already satisfied: numpy&lt;3,&gt;=1.25.2 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from imbalanced-learn) (2.2.6)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy&lt;3,&gt;=1.25.2 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from imbalanced-learn) (2.2.6)
 Requirement already satisfied: scipy&lt;2,&gt;=1.11.4 in /home/codespace/.local/lib/python3.12/site-packages (from imbalanced-learn) (1.16.0)
 Requirement already satisfied: joblib&lt;2,&gt;=1.2.0 in /home/codespace/.local/lib/python3.12/site-packages (from imbalanced-learn) (1.5.1)
 Requirement already satisfied: threadpoolctl&lt;4,&gt;=2.0.0 in /home/codespace/.local/lib/python3.12/site-packages (from imbalanced-learn) (3.6.0)
@@ -464,47 +479,9 @@ Requirement already satisfied: python-dateutil&gt;=2.7 in /home/codespace/.local
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pytz&gt;=2020.1 in /home/codespace/.local/lib/python3.12/site-packages (from pandas&gt;=1.2-&gt;seaborn) (2025.2)
 Requirement already satisfied: tzdata&gt;=2022.7 in /home/codespace/.local/lib/python3.12/site-packages (from pandas&gt;=1.2-&gt;seaborn) (2025.2)
 Requirement already satisfied: six&gt;=1.5 in /home/codespace/.local/lib/python3.12/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.17.0)
-Downloading mysql_connector_python-9.4.0-cp312-cp312-manylinux_2_28_x86_64.whl (33.9 MB)
-?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/33.9 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">33.8/33.9 MB</span> <span class=" -Color -Color-Red">206.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">33.8/33.9 MB</span> <span class=" -Color -Color-Red">206.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">33.8/33.9 MB</span> <span class=" -Color -Color-Red">206.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">33.9/33.9 MB</span> <span class=" -Color -Color-Red">54.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hDownloading imbalanced_learn-0.14.0-py3-none-any.whl (239 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: mysql-connector-python, imbalanced-learn
-?25l
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0/2</span> [mysql-connector-python]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0/2</span> [mysql-connector-python]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0/2</span> [mysql-connector-python]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1/2</span> [imbalanced-learn]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">2/2</span> [imbalanced-learn]
-?25h
-
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed imbalanced-learn-0.14.0 mysql-connector-python-9.4.0
-
-<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">25.1.1</span> -&gt; <span class=" -Color -Color-Green">25.2</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">25.1.1</span> -&gt; <span class=" -Color -Color-Green">25.2</span>
 <span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">python3 -m pip install --upgrade pip</span>
 </pre></div>
 </div>
@@ -610,11 +587,306 @@ Downloading mysql_connector_python-9.4.0-cp312-cp312-manylinux_2_28_x86_64.whl (
 <img alt="_images/cb91ce75cfa47808ff664457eaf89343b31466d768e90c066a7b580a3a9b2aff.png" src="_images/cb91ce75cfa47808ff664457eaf89343b31466d768e90c066a7b580a3a9b2aff.png" />
 </div>
 </div>
+<section id="jumlah-data-tiap-kelas">
+<h3>Jumlah data tiap kelas<a class="headerlink" href="#jumlah-data-tiap-kelas" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pastikan y adalah Series, bukan ndarray</span>
+<span class="n">y_series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">)</span>
+
+<span class="c1"># Hitung jumlah data per kelas</span>
+<span class="n">class_counts</span> <span class="o">=</span> <span class="n">y_series</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah data per kelas:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">class_counts</span><span class="p">)</span>
+
+<span class="c1"># Plot grafik batang</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">class_counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">class_counts</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;tab10&quot;</span><span class="p">)</span>
+
+<span class="c1"># Tambahkan angka di atas tiap batang</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">class_counts</span><span class="o">.</span><span class="n">values</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribusi Jumlah Data per Kelas (Ecoli)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Kelas&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jumlah Data&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah data per kelas:
+class
+cp     143
+im      77
+imL      2
+imS      2
+imU     35
+om      20
+omL      5
+pp      52
+Name: count, dtype: int64
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3469/4170757829.py:12: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  ax = sns.barplot(x=class_counts.index, y=class_counts.values, palette=&quot;tab10&quot;)
+</pre></div>
+</div>
+<img alt="_images/b203ef9f7c14c83645debc6c0859baeaf09c7643a772b998be88fa711cb5a9e3.png" src="_images/b203ef9f7c14c83645debc6c0859baeaf09c7643a772b998be88fa711cb5a9e3.png" />
+</div>
+</div>
+</section>
+<section id="klasifikasi-data-menggunakan-naive-bayes">
+<h3>Klasifikasi data menggunakan naive bayes<a class="headerlink" href="#klasifikasi-data-menggunakan-naive-bayes" title="Link to this heading">#</a></h3>
+<p>Kode tersebut melakukan klasifikasi dataset menggunakan algoritma Gaussian Naive Bayes. Pertama, data dibagi menjadi dua bagian yaitu data latih sebesar 70% dan data uji sebesar 30% dengan menggunakan train_test_split, serta dilakukan stratifikasi agar distribusi kelas tetap seimbang antara data latih dan uji. Selanjutnya, model Naive Bayes dibuat menggunakan GaussianNB() dan dilatih pada data latih (X_train, y_train). Setelah model terbentuk, dilakukan prediksi terhadap data uji (X_test) untuk menghasilkan label prediksi. Hasil prediksi kemudian dievaluasi menggunakan akurasi serta classification report yang memuat precision, recall, dan f1-score untuk setiap kelas. Selain itu, dibuat juga confusion matrix dalam bentuk heatmap yang memperlihatkan jumlah prediksi benar dan salah pada tiap kelas, sehingga performa model dapat dianalisis lebih jelas. Dengan cara ini, kita bisa mengetahui seberapa baik Naive Bayes mengenali tiap kelas pada dataset Ecoli.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.naive_bayes</span><span class="w"> </span><span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># --- Split data ---</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X_scaled</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span>
+<span class="p">)</span>
+
+<span class="c1"># --- Model Naive Bayes ---</span>
+<span class="n">nb</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+<span class="n">nb</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># --- Prediksi ---</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">nb</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># --- Evaluasi ---</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Classification Report:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+
+<span class="c1"># --- Confusion Matrix ---</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">nb</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span>
+            <span class="n">xticklabels</span><span class="o">=</span><span class="n">nb</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">nb</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix - Naive Bayes&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Prediksi&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Aktual&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.7821782178217822
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          cp       0.91      1.00      0.96        43
+          im       0.78      0.61      0.68        23
+         imL       0.00      0.00      0.00         1
+         imS       0.00      0.00      0.00         1
+         imU       0.62      0.50      0.56        10
+          om       0.00      0.00      0.00         6
+         omL       0.50      1.00      0.67         1
+          pp       0.62      1.00      0.76        16
+
+    accuracy                           0.78       101
+   macro avg       0.43      0.51      0.45       101
+weighted avg       0.73      0.78      0.74       101
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/codespace/.local/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1706: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, result.shape[0])
+/home/codespace/.local/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1706: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, result.shape[0])
+/home/codespace/.local/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1706: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, result.shape[0])
+</pre></div>
+</div>
+<img alt="_images/20455f7755a67d3edb1704d32bdc43901c1fab89f02778c27b74a6a0f684443f.png" src="_images/20455f7755a67d3edb1704d32bdc43901c1fab89f02778c27b74a6a0f684443f.png" />
+</div>
+</div>
+<p>Hasil evaluasi menunjukkan bahwa model Naive Bayes memiliki akurasi sebesar 0.78, yang sekilas terlihat cukup baik. Namun, jika dilihat lebih dalam melalui metrik lain, performanya ternyata tidak merata. Nilai macro average F1 hanya sebesar 0.45, menandakan bahwa rata-rata performa antar kelas rendah. Bahkan ada beberapa kelas seperti imL, imS, dan om yang tidak terprediksi sama sekali, ditunjukkan dengan precision dan recall = 0. Hal ini mengindikasikan bahwa model cenderung hanya mengenali kelas mayoritas seperti cp dan im, sementara mengabaikan kelas minoritas. Situasi ini adalah konsekuensi langsung dari class imbalance dalam dataset Ecoli, di mana distribusi sampel tiap kelas tidak seimbang. Dengan demikian, meskipun akurasi tampak tinggi, metrik seperti precision, recall, dan F1-score lebih relevan untuk menilai performa model pada dataset yang tidak seimbang.</p>
+</section>
+<section id="klasifikasi-data-menggunakan-random-forest">
+<h3>Klasifikasi data menggunakan random forest<a class="headerlink" href="#klasifikasi-data-menggunakan-random-forest" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># --- Split data ---</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X_scaled</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span>
+<span class="p">)</span>
+
+<span class="c1"># --- Model Random Forest ---</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span>
+    <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>     <span class="c1"># jumlah pohon</span>
+    <span class="n">max_depth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>       <span class="c1"># kedalaman pohon, None = tidak dibatasi</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+<span class="p">)</span>
+<span class="n">rf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># --- Prediksi ---</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># --- Evaluasi ---</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Classification Report:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+
+<span class="c1"># --- Confusion Matrix ---</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">rf</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span>
+            <span class="n">xticklabels</span><span class="o">=</span><span class="n">rf</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">rf</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix - Random Forest&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Prediksi&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Aktual&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.8217821782178217
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          cp       0.93      1.00      0.97        43
+          im       0.73      0.70      0.71        23
+         imL       0.00      0.00      0.00         1
+         imS       0.00      0.00      0.00         1
+         imU       0.46      0.60      0.52        10
+          om       1.00      0.83      0.91         6
+         omL       0.50      1.00      0.67         1
+          pp       0.92      0.75      0.83        16
+
+    accuracy                           0.82       101
+   macro avg       0.57      0.61      0.58       101
+weighted avg       0.82      0.82      0.82       101
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/codespace/.local/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1706: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, result.shape[0])
+/home/codespace/.local/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1706: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, result.shape[0])
+/home/codespace/.local/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1706: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, result.shape[0])
+</pre></div>
+</div>
+<img alt="_images/74605e938cfc5eb9a57b226aecf01299ce134c414fb714cc3eb8278f57016b0f.png" src="_images/74605e938cfc5eb9a57b226aecf01299ce134c414fb714cc3eb8278f57016b0f.png" />
+</div>
+</div>
+<p>Akurasi: 0.82</p>
+<p>Model secara umum bekerja cukup baik karena mampu memprediksi dengan benar 82% data uji.</p>
+<p>Namun, nilai macro average F1 hanya 0.58, menunjukkan bahwa performa antar kelas masih timpang.</p>
+<ul class="simple">
+<li><p>Beberapa kelas sama sekali tidak terdeteksi
+Contohnya, kelas imL dan imS memiliki precision, recall, dan F1 = 0, artinya model gagal mengenali kelas minoritas tersebut.</p></li>
+<li><p>Kelas mayoritas terprediksi sangat baik
+Kelas cp memiliki hasil sangat tinggi (precision 0.93, recall 1.00, F1 = 0.97). Kelas im dan pp juga cukup baik, meskipun tidak setinggi cp.</p></li>
+<li><p>Masalah utama ketidakseimbangan data (imbalanced class)
+Model lebih fokus belajar pada kelas dengan jumlah data besar (seperti cp dan im), sehingga kelas dengan data sedikit (imL, imS, omL) cenderung diabaikan.</p></li>
+</ul>
+</section>
+<section id="klasifikasi-data-menggunakan-esemble-bagging">
+<h3>Klasifikasi data menggunakan esemble bagging<a class="headerlink" href="#klasifikasi-data-menggunakan-esemble-bagging" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaggingClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># --- Split data ---</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X_scaled</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span>
+<span class="p">)</span>
+
+<span class="c1"># --- Model Bagging (base: Decision Tree) ---</span>
+<span class="n">bagging</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span>
+    <span class="n">estimator</span><span class="o">=</span><span class="n">DecisionTreeClassifier</span><span class="p">(),</span>  <span class="c1"># ganti base_estimator -&gt; estimator</span>
+    <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>        <span class="c1"># jumlah model</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span>                <span class="c1"># paralelisasi</span>
+<span class="p">)</span>
+<span class="n">bagging</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># --- Prediksi ---</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">bagging</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># --- Evaluasi ---</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Classification Report:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+
+<span class="c1"># --- Confusion Matrix ---</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">bagging</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span>
+            <span class="n">xticklabels</span><span class="o">=</span><span class="n">bagging</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">bagging</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix - Bagging (Decision Tree)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Prediksi&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Aktual&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.8217821782178217
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          cp       0.91      1.00      0.96        43
+          im       0.70      0.70      0.70        23
+         imL       0.00      0.00      0.00         1
+         imS       0.00      0.00      0.00         1
+         imU       0.46      0.60      0.52        10
+          om       1.00      1.00      1.00         6
+         omL       1.00      1.00      1.00         1
+          pp       1.00      0.69      0.81        16
+
+    accuracy                           0.82       101
+   macro avg       0.63      0.62      0.62       101
+weighted avg       0.82      0.82      0.82       101
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/codespace/.local/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1706: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, result.shape[0])
+/home/codespace/.local/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1706: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, result.shape[0])
+/home/codespace/.local/lib/python3.12/site-packages/sklearn/metrics/_classification.py:1706: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, result.shape[0])
+</pre></div>
+</div>
+<img alt="_images/dd420678e5308bd7df71ac45242f40a630b5fbb4c36cb12354e2ef4468fbe4a7.png" src="_images/dd420678e5308bd7df71ac45242f40a630b5fbb4c36cb12354e2ef4468fbe4a7.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Akurasi = 0.82 (82%)
+Artinya, model Bagging berhasil memprediksi dengan benar sekitar 82% data uji.</p></li>
+<li><p>Macro avg F1 = 0.62 (rendah)
+Disebabkan adanya kelas minoritas (misalnya imL dan imS) yang sama sekali tidak terprediksi.</p></li>
+<li><p>Weighted avg F1 = 0.82 (tinggi) Karena perhitungan berbobot jumlah data, sehingga kelas mayoritas (seperti cp dan im) mendominasi hasil.</p></li>
+</ul>
+</section>
 </section>
 <section id="penyeimbangan-data">
 <h2>Penyeimbangan Data<a class="headerlink" href="#penyeimbangan-data" title="Link to this heading">#</a></h2>
+</section>
 <section id="smote">
-<h3>SMOTE<a class="headerlink" href="#smote" title="Link to this heading">#</a></h3>
+<h2>SMOTE<a class="headerlink" href="#smote" title="Link to this heading">#</a></h2>
 <p>Potongan kode ini berfungsi untuk menyeimbangkan kategori dalam dataset Ecoli menggunakan teknik SMOTE (Synthetic Minority Oversampling Technique). Pertama-tama, fitur numerik utama diambil sebagai X dan label kelas ditetapkan sebagai y. Kemudian, SMOTE diterapkan dengan k_neighbors=1 untuk mencegah kesalahan pada kelas dengan jumlah sampel yang sangat sedikit. Fungsi fit_resample dari SMOTE menghasilkan X_res dan y_res, yaitu dataset baru yang telah diseimbangkan sehingga setiap kelas memiliki jumlah sampel yang hampir setara. Kode ini juga menunjukkan jumlah sampel per kelas sebelum dan setelah proses penyeimbangan dengan menggunakan pd. Series. value_counts() yang memudahkan dalam memverifikasi hasil oversampling.</p>
 <p>Selanjutnya, kode ini juga menandai sampel sintetis yang dihasilkan oleh SMOTE dengan cara membandingkan setiap baris dari X_res yang telah diresample dengan data asli X. Fungsi rows_to_keys digunakan untuk mengonversi setiap baris menjadi string yang unik berdasarkan nilai fitur yang sudah dibulatkan, sehingga dapat dibandingkan dengan akurat. Variabel is_synthetic menyimpan nilai boolean yang menunjukkan apakah baris tersebut adalah sampel yang dihasilkan oleh SMOTE (True) atau berasal dari data asli (False). Dengan cara ini, kita dapat mengetahui jumlah sampel baru yang ditambahkan, yang penting untuk visualisasi dan analisis lebih lanjut, misalnya ketika menampilkan scatter plot PCA dengan memberikan tanda pada data sintetis.</p>
 <div class="cell docutils container">
@@ -656,9 +928,271 @@ Jumlah synthetic terdeteksi: 808
 </div>
 </div>
 </div>
+<section id="perbandingan-sebelum-dan-sesudah-smote">
+<h3>Perbandingan sebelum dan sesudah SMOTE<a class="headerlink" href="#perbandingan-sebelum-dan-sesudah-smote" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">imblearn.over_sampling</span><span class="w"> </span><span class="kn">import</span> <span class="n">SMOTE</span>
+
+<span class="c1"># --- Fitur dan target dari df ---</span>
+<span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;mcg&quot;</span><span class="p">,</span> <span class="s2">&quot;gvh&quot;</span><span class="p">,</span> <span class="s2">&quot;lip&quot;</span><span class="p">,</span> <span class="s2">&quot;chg&quot;</span><span class="p">,</span> <span class="s2">&quot;aac&quot;</span><span class="p">,</span> <span class="s2">&quot;alm1&quot;</span><span class="p">,</span> <span class="s2">&quot;alm2&quot;</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">features</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># --- SMOTE ---</span>
+<span class="n">smote</span> <span class="o">=</span> <span class="n">SMOTE</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">k_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span> <span class="o">=</span> <span class="n">smote</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># --- Hitung distribusi kelas ---</span>
+<span class="n">before_counts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">after_counts</span>  <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y_res</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Before balancing:&quot;</span><span class="p">,</span> <span class="n">before_counts</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After  balancing:&quot;</span><span class="p">,</span> <span class="n">after_counts</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+
+<span class="c1"># --- Plot diagram batang ---</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">before_counts</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">before_counts</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Sebelum SMOTE&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;skyblue&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">after_counts</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>  <span class="n">width</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Sesudah SMOTE&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jumlah Sampel&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribusi Kelas Sebelum vs Sesudah SMOTE&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before balancing: {&#39;cp&#39;: 143, &#39;im&#39;: 77, &#39;imL&#39;: 2, &#39;imS&#39;: 2, &#39;imU&#39;: 35, &#39;om&#39;: 20, &#39;omL&#39;: 5, &#39;pp&#39;: 52}
+After  balancing: {&#39;cp&#39;: 143, &#39;im&#39;: 143, &#39;imL&#39;: 143, &#39;imS&#39;: 143, &#39;imU&#39;: 143, &#39;om&#39;: 143, &#39;omL&#39;: 143, &#39;pp&#39;: 143}
+</pre></div>
+</div>
+<img alt="_images/b638ed4c4040f7e5a28dd55469d0cb32086f6cb1f2ac86aadd2e5f5049ec6781.png" src="_images/b638ed4c4040f7e5a28dd55469d0cb32086f6cb1f2ac86aadd2e5f5049ec6781.png" />
+</div>
+</div>
+</section>
+<section id="klasifikasi-data-menggunakan-naive-bayes-setelah-di-lakukan-smote">
+<h3>Klasifikasi data menggunakan naive bayes setelah di lakukan smote<a class="headerlink" href="#klasifikasi-data-menggunakan-naive-bayes-setelah-di-lakukan-smote" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.naive_bayes</span><span class="w"> </span><span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># --- Split data (hasil SMOTE) ---</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_res</span>
+<span class="p">)</span>
+
+<span class="c1"># --- Model Naive Bayes ---</span>
+<span class="n">nb</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+<span class="n">nb</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># --- Prediksi ---</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">nb</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># --- Evaluasi ---</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Classification Report:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+
+<span class="c1"># --- Confusion Matrix ---</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">nb</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span>
+            <span class="n">xticklabels</span><span class="o">=</span><span class="n">nb</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">nb</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix - Naive Bayes (SMOTE)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Prediksi&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Aktual&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.8197674418604651
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Classification Report:
+               precision    recall  f1-score   support
+
+          cp       0.84      1.00      0.91        43
+          im       0.84      0.49      0.62        43
+         imL       1.00      1.00      1.00        43
+         imS       0.98      1.00      0.99        43
+         imU       0.74      0.72      0.73        43
+          om       1.00      0.40      0.57        43
+         omL       1.00      1.00      1.00        43
+          pp       0.52      0.95      0.67        43
+
+    accuracy                           0.82       344
+   macro avg       0.86      0.82      0.81       344
+weighted avg       0.86      0.82      0.81       344
+</pre></div>
+</div>
+<img alt="_images/01bb5894b7792c59ab8eea89779245090eb7c85962ce7a0630ac44ecb6759075.png" src="_images/01bb5894b7792c59ab8eea89779245090eb7c85962ce7a0630ac44ecb6759075.png" />
+</div>
+</div>
+<p>Hasil evaluasi menunjukkan bahwa setelah dilakukan SMOTE, akurasi meningkat menjadi 0.82, sebuah kenaikan yang cukup signifikan dibanding sebelumnya. Nilai macro average F1 juga mencapai 0.81, menandakan performa model kini lebih seimbang di semua kelas. Tidak ada lagi kelas yang terabaikan karena seluruh kelas sudah memiliki nilai precision dan recall di atas 0. Hal ini membuktikan bahwa penerapan SMOTE berhasil menyeimbangkan distribusi data, dengan cara menghasilkan sampel sintetis di sekitar kelas minoritas sehingga model dapat belajar lebih baik dan memberikan prediksi yang lebih merata.</p>
+</section>
+<section id="klasifikasi-data-menggunakan-random-forest-setelah-dilakukan-smote">
+<h3>Klasifikasi data menggunakan random forest setelah dilakukan smote<a class="headerlink" href="#klasifikasi-data-menggunakan-random-forest-setelah-dilakukan-smote" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># --- Split data (hasil SMOTE) ---</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_res</span>
+<span class="p">)</span>
+
+<span class="c1"># --- Model Random Forest ---</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span>
+    <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>     <span class="c1"># jumlah pohon</span>
+    <span class="n">max_depth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>       <span class="c1"># None = tidak dibatasi</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+<span class="p">)</span>
+<span class="n">rf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># --- Prediksi ---</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># --- Evaluasi ---</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Classification Report:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+
+<span class="c1"># --- Confusion Matrix ---</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">rf</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span>
+            <span class="n">xticklabels</span><span class="o">=</span><span class="n">rf</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">rf</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix - Random Forest (SMOTE)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Prediksi&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Aktual&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.9447674418604651
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          cp       0.88      1.00      0.93        43
+          im       0.90      0.84      0.87        43
+         imL       1.00      1.00      1.00        43
+         imS       1.00      1.00      1.00        43
+         imU       0.90      0.86      0.88        43
+          om       1.00      0.88      0.94        43
+         omL       1.00      1.00      1.00        43
+          pp       0.89      0.98      0.93        43
+
+    accuracy                           0.94       344
+   macro avg       0.95      0.94      0.94       344
+weighted avg       0.95      0.94      0.94       344
+</pre></div>
+</div>
+<img alt="_images/003102bbbc73065ca95f4b18f84fc93214cee66ea942ea999d67a740f8e17c17.png" src="_images/003102bbbc73065ca95f4b18f84fc93214cee66ea942ea999d67a740f8e17c17.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Akurasi: 0.94
+Model mampu memberikan prediksi benar hingga 94% pada data uji. Angka ini menunjukkan peningkatan signifikan dibanding hasil sebelumnya yang hanya berada di kisaran 0.78–0.82.</p></li>
+<li><p>Macro avg F1: 0.94 (sangat tinggi)
+Rata-rata F1 skor di seluruh kelas, tanpa memperhatikan besar kecilnya jumlah sampel, mencapai 0.94. Hal ini menandakan performa model konsisten baik di kelas mayoritas maupun minoritas.</p></li>
+<li><p>Kinerja tiap kelas konsisten
+Hampir semua kelas memperoleh nilai precision, recall, dan F1 antara 0.85 hingga 1.00. Bahkan, kelas minoritas yang sebelumnya tidak terprediksi (seperti imL, imS, omL) kini mencapai skor sempurna (1.00).</p></li>
+<li><p>Dampak SMOTE
+Penggunaan SMOTE berhasil menyeimbangkan distribusi data, sehingga Random Forest dapat mengenali kelas minoritas dengan kualitas prediksi yang setara dengan kelas mayoritas.</p></li>
+</ul>
+</section>
+<section id="klasifikasi-data-menggunakan-esemble-bagging-setelah-dilakukan-smote">
+<h3>Klasifikasi data menggunakan esemble bagging setelah dilakukan smote<a class="headerlink" href="#klasifikasi-data-menggunakan-esemble-bagging-setelah-dilakukan-smote" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaggingClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># --- Split data (hasil SMOTE) ---</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X_res</span><span class="p">,</span> <span class="n">y_res</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_res</span>
+<span class="p">)</span>
+
+<span class="c1"># --- Model Bagging (base: Decision Tree) ---</span>
+<span class="n">bagging</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span>
+    <span class="n">estimator</span><span class="o">=</span><span class="n">DecisionTreeClassifier</span><span class="p">(),</span>  <span class="c1"># model dasar</span>
+    <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>        <span class="c1"># jumlah model (default 10, kita pakai 100 biar mirip Random Forest)</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span>                <span class="c1"># paralelisasi</span>
+<span class="p">)</span>
+<span class="n">bagging</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># --- Prediksi ---</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">bagging</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># --- Evaluasi ---</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Classification Report:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+
+<span class="c1"># --- Confusion Matrix ---</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">bagging</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span>
+            <span class="n">xticklabels</span><span class="o">=</span><span class="n">bagging</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">bagging</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix - Bagging (SMOTE)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Prediksi&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Aktual&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.9244186046511628
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          cp       0.85      0.93      0.89        43
+          im       0.85      0.81      0.83        43
+         imL       1.00      1.00      1.00        43
+         imS       1.00      1.00      1.00        43
+         imU       0.88      0.84      0.86        43
+          om       0.95      0.86      0.90        43
+         omL       1.00      1.00      1.00        43
+          pp       0.87      0.95      0.91        43
+
+    accuracy                           0.92       344
+   macro avg       0.93      0.92      0.92       344
+weighted avg       0.93      0.92      0.92       344
+</pre></div>
+</div>
+<img alt="_images/5a8786cdc0c8ea22b864b7bc67a5cce90f727baf5acb49781f257c3ca37ed5df.png" src="_images/5a8786cdc0c8ea22b864b7bc67a5cce90f727baf5acb49781f257c3ca37ed5df.png" />
+</div>
+</div>
+<p>Model menunjukkan performa sangat baik dengan akurasi 92%.
+Sebagian besar kelas diprediksi dengan hasil yang sangat baik, bahkan ada yang mencapai nilai sempurna.</p>
+<p>Kelas terlemah adalah im dengan recall 0.81, yang berarti masih ada sebagian data kelas im yang keliru terklasifikasi sebagai kelas lain.</p>
+</section>
 </section>
 <section id="adasyn">
-<h3>ADASYN<a class="headerlink" href="#adasyn" title="Link to this heading">#</a></h3>
+<h2>ADASYN<a class="headerlink" href="#adasyn" title="Link to this heading">#</a></h2>
 <p>Potongan kode berikut menggambarkan metode kombinasi untuk menyeimbangkan dataset Ecoli yang memiliki kelas dengan jumlah sangat sedikit. Pertama, SMOTE diterapkan dengan <code class="docutils literal notranslate"><span class="pre">k_neighbors=1</span></code> untuk meningkatkan jumlah contoh dalam kelas-kelas yang jarang, sehingga semua kelas memiliki jumlah contoh minimal yang memadai. Hasil dari pengambilan sampel ini disimpan dalam <code class="docutils literal notranslate"><span class="pre">X_sm</span></code> dan <code class="docutils literal notranslate"><span class="pre">y_sm</span></code>, dan jumlah contoh per kelas ditampilkan menggunakan <code class="docutils literal notranslate"><span class="pre">pd.</span> <span class="pre">Series.</span> <span class="pre">value_counts()</span></code>, sehingga kita dapat melihat dampak penambahan contoh sintetis dari SMOTE.</p>
 <p>Setelah kelas dengan jumlah sangat sedikit tersebut mendapatkan perwakilan yang cukup, diterapkan ADASYN pada dataset yang dihasilkan dari SMOTE. ADASYN juga menggunakan <code class="docutils literal notranslate"><span class="pre">n_neighbors=1</span></code> untuk menghindari kesalahan pada kelas minoritas yang kecil. Metode ini menambahkan contoh sintetis yang lebih adaptif berdasarkan distribusi kelas mayoritas di sekitar contoh minoritas. Hasil akhir disimpan dalam <code class="docutils literal notranslate"><span class="pre">X_ada</span></code> dan <code class="docutils literal notranslate"><span class="pre">y_ada</span></code>, dan jumlah contoh per kelas ditampilkan lagi. Dengan menggunakan metode gabungan ini, dataset menjadi lebih seimbang dan siap untuk dianalisis atau divisualisasikan lebih lanjut, misalnya dengan PCA untuk melihat distribusi contoh yang asli dan sintetis.</p>
 <div class="cell docutils container">
@@ -686,7 +1220,377 @@ Setelah SMOTE+ADASYN: {&#39;cp&#39;: 143, &#39;im&#39;: 143, &#39;imS&#39;: 143,
 </div>
 </div>
 </div>
+<section id="perbandingan-data-sebelum-dan-setelah-di-adasyn">
+<h3>Perbandingan data sebelum dan setelah di adasyn<a class="headerlink" href="#perbandingan-data-sebelum-dan-setelah-di-adasyn" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">imblearn.over_sampling</span><span class="w"> </span><span class="kn">import</span> <span class="n">SMOTE</span><span class="p">,</span> <span class="n">ADASYN</span>
+
+<span class="c1"># --- Distribusi awal ---</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sebelum:&quot;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+
+<span class="c1"># 1. SMOTE dulu</span>
+<span class="n">smote</span> <span class="o">=</span> <span class="n">SMOTE</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">k_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_sm</span><span class="p">,</span> <span class="n">y_sm</span> <span class="o">=</span> <span class="n">smote</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Setelah SMOTE:&quot;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y_sm</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+
+<span class="c1"># 2. ADASYN setelah SMOTE</span>
+<span class="n">adasyn</span> <span class="o">=</span> <span class="n">ADASYN</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_ada</span><span class="p">,</span> <span class="n">y_ada</span> <span class="o">=</span> <span class="n">adasyn</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X_sm</span><span class="p">,</span> <span class="n">y_sm</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Setelah SMOTE+ADASYN:&quot;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y_ada</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">())</span>
+
+<span class="c1"># --- Plot perbandingan ---</span>
+<span class="n">counts_before</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">counts_after</span>  <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y_ada</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+
+<span class="n">df_counts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Sebelum&quot;</span><span class="p">:</span> <span class="n">counts_before</span><span class="p">,</span>
+    <span class="s2">&quot;Sesudah (SMOTE+ADASYN)&quot;</span><span class="p">:</span> <span class="n">counts_after</span>
+<span class="p">})</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">df_counts</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribusi Kelas Ecoli</span><span class="se">\n</span><span class="s2">Sebelum vs Sesudah SMOTE+ADASYN&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Kelas&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Jumlah Sampel&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sebelum: {&#39;cp&#39;: 143, &#39;im&#39;: 77, &#39;pp&#39;: 52, &#39;imU&#39;: 35, &#39;om&#39;: 20, &#39;omL&#39;: 5, &#39;imL&#39;: 2, &#39;imS&#39;: 2}
+Setelah SMOTE: {&#39;cp&#39;: 143, &#39;im&#39;: 143, &#39;imS&#39;: 143, &#39;imL&#39;: 143, &#39;imU&#39;: 143, &#39;om&#39;: 143, &#39;omL&#39;: 143, &#39;pp&#39;: 143}
+Setelah SMOTE+ADASYN: {&#39;cp&#39;: 143, &#39;im&#39;: 143, &#39;imS&#39;: 143, &#39;imL&#39;: 143, &#39;imU&#39;: 143, &#39;om&#39;: 143, &#39;omL&#39;: 143, &#39;pp&#39;: 143}
+</pre></div>
+</div>
+<img alt="_images/76955b03f2ffdb6436e4864b468daee3916c6d44ca359af2ccc9ac5be4e02a4e.png" src="_images/76955b03f2ffdb6436e4864b468daee3916c6d44ca359af2ccc9ac5be4e02a4e.png" />
+</div>
+</div>
 </section>
+<section id="klasifikasi-data-menggunakan-naive-bayes-setelah-dilakukan-adasyn">
+<h3>Klasifikasi data menggunakan naive bayes setelah dilakukan adasyn<a class="headerlink" href="#klasifikasi-data-menggunakan-naive-bayes-setelah-dilakukan-adasyn" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.naive_bayes</span><span class="w"> </span><span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+
+<span class="c1"># --- Split data hasil SMOTE+ADASYN ---</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X_ada</span><span class="p">,</span> <span class="n">y_ada</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_ada</span>
+<span class="p">)</span>
+
+<span class="c1"># --- Model Naive Bayes ---</span>
+<span class="n">nb</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+<span class="n">nb</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># --- Prediksi ---</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">nb</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># --- Evaluasi ---</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Classification Report:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+
+<span class="c1"># --- Confusion Matrix ---</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">nb</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span>
+            <span class="n">xticklabels</span><span class="o">=</span><span class="n">nb</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">nb</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix - Naive Bayes (SMOTE+ADASYN)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Prediksi&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Aktual&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.8226744186046512
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          cp       0.84      1.00      0.91        43
+          im       0.88      0.49      0.63        43
+         imL       1.00      1.00      1.00        43
+         imS       0.96      1.00      0.98        43
+         imU       0.73      0.74      0.74        43
+          om       1.00      0.40      0.57        43
+         omL       1.00      1.00      1.00        43
+          pp       0.53      0.95      0.68        43
+
+    accuracy                           0.82       344
+   macro avg       0.87      0.82      0.81       344
+weighted avg       0.87      0.82      0.81       344
+</pre></div>
+</div>
+<img alt="_images/65978a52374caa3b404d1f9f1db5d4f0147bc605ed68407ad85c7f4bb769e934.png" src="_images/65978a52374caa3b404d1f9f1db5d4f0147bc605ed68407ad85c7f4bb769e934.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Akurasi: 0.8226
+Tingkat akurasi model setelah menggunakan SMOTE+ADASYN mencapai sekitar 82%, sedikit lebih tinggi dibandingkan hanya dengan SMOTE.</p></li>
+<li><p>Macro avg F1: 0.81
+Nilai macro F1 tetap sama dengan SMOTE, menunjukkan kinerja rata-rata antar kelas masih seimbang.</p></li>
+<li><p>Perbedaan antar kelas
+Perbedaan utama terlihat pada distribusi performa tiap kelas. ADASYN lebih fokus pada kelas minoritas yang sulit dipelajari melalui dynamic sampling. Contohnya, skor F1 untuk kelas im naik tipis dari 0.62 (SMOTE) menjadi 0.63, sedangkan kelas imS hanya turun sedikit dari 0.99 menjadi 0.98.</p></li>
+<li><p>Kesimpulan
+Secara keseluruhan, hasil ADASYN membuat prediksi antar kelas lebih merata, meskipun peningkatannya tidak terlalu jauh dibandingkan SMOTE.</p></li>
+</ul>
+</section>
+<section id="klasifikasi-data-menggunakan-random-forest-setelah-dilakukan-adasyn">
+<h3>Klasifikasi data menggunakan random forest setelah dilakukan adasyn<a class="headerlink" href="#klasifikasi-data-menggunakan-random-forest-setelah-dilakukan-adasyn" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># --- Split data hasil SMOTE+ADASYN ---</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X_ada</span><span class="p">,</span> <span class="n">y_ada</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_ada</span>
+<span class="p">)</span>
+
+<span class="c1"># --- Model Random Forest ---</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span>
+    <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>     <span class="c1"># jumlah pohon</span>
+    <span class="n">max_depth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>       <span class="c1"># kedalaman pohon, None = tidak dibatasi</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+<span class="p">)</span>
+<span class="n">rf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># --- Prediksi ---</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># --- Evaluasi ---</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Classification Report:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+
+<span class="c1"># --- Confusion Matrix ---</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">rf</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span>
+            <span class="n">xticklabels</span><span class="o">=</span><span class="n">rf</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">rf</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix - Random Forest (SMOTE+ADASYN)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Prediksi&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Aktual&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.9447674418604651
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          cp       0.90      1.00      0.95        43
+          im       0.85      0.81      0.83        43
+         imL       1.00      1.00      1.00        43
+         imS       1.00      1.00      1.00        43
+         imU       0.88      0.86      0.87        43
+          om       1.00      0.93      0.96        43
+         omL       1.00      1.00      1.00        43
+          pp       0.93      0.95      0.94        43
+
+    accuracy                           0.94       344
+   macro avg       0.95      0.94      0.94       344
+weighted avg       0.95      0.94      0.94       344
+</pre></div>
+</div>
+<img alt="_images/621c2027c7dc7c1412ce7794c106f15519d325c00e129da47f69a87a41dd16a4.png" src="_images/621c2027c7dc7c1412ce7794c106f15519d325c00e129da47f69a87a41dd16a4.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Akurasi: 0.94
+Model berhasil mengklasifikasikan sekitar 94% data uji dengan benar, menunjukkan performa yang sangat tinggi dan konsisten dengan hasil sebelumnya (SMOTE saja).</p></li>
+<li><p>Macro avg F1: 0.94
+Nilai macro F1 yang sangat besar mengindikasikan bahwa kinerja model merata di seluruh kelas, tanpa ada kelas yang terabaikan.</p></li>
+<li><p>Stabilitas kinerja per kelas
+Beberapa kelas seperti <em>cp</em>, <em>imL</em>, <em>imS</em>, dan <em>omL</em> mencapai skor sempurna (precision, recall, dan F1 = 1.00). Kelas mayoritas seperti <em>cp</em> dan <em>pp</em> juga tetap menunjukkan hasil tinggi (F1 sekitar 0.95). Sementara itu, kelas <em>im</em> dan <em>imU</em> sedikit lebih rendah (F1 = 0.83 dan 0.87), tetapi tetap dalam kategori sangat baik.</p></li>
+<li><p>Kinerja pada kelas minoritas
+Jika sebelumnya (tanpa oversampling) banyak kelas minoritas yang sama sekali tidak terdeteksi (F1 = 0), kini setelah menggunakan SMOTE+ADASYN, kelas minoritas sudah dapat diprediksi dengan baik dan tidak lagi terabaikan.</p></li>
+<li><p>Kesimpulan
+Kombinasi teknik oversampling SMOTE dan ADASYN dengan algoritma Random Forest terbukti mampu mengatasi masalah <em>imbalanced class</em>. Model yang dihasilkan tidak hanya akurat secara keseluruhan, tetapi juga seimbang dalam menangani baik kelas mayoritas maupun minoritas.</p></li>
+</ul>
+</section>
+<section id="klasifikasi-data-menggunakan-esemble-bagging-setelah-dilakukan-adasyn">
+<h3>Klasifikasi data menggunakan esemble bagging setelah dilakukan adasyn<a class="headerlink" href="#klasifikasi-data-menggunakan-esemble-bagging-setelah-dilakukan-adasyn" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaggingClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># --- Split data hasil SMOTE+ADASYN ---</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X_ada</span><span class="p">,</span> <span class="n">y_ada</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_ada</span>
+<span class="p">)</span>
+
+<span class="c1"># --- Model Bagging (base: Decision Tree) ---</span>
+<span class="n">bagging</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span>
+    <span class="n">estimator</span><span class="o">=</span><span class="n">DecisionTreeClassifier</span><span class="p">(),</span>  <span class="c1"># model dasar</span>
+    <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>        <span class="c1"># jumlah model</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span>                <span class="c1"># paralel biar lebih cepat</span>
+<span class="p">)</span>
+<span class="n">bagging</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># --- Prediksi ---</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">bagging</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># --- Evaluasi ---</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Classification Report:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+
+<span class="c1"># --- Confusion Matrix ---</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">bagging</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Blues&quot;</span><span class="p">,</span>
+            <span class="n">xticklabels</span><span class="o">=</span><span class="n">bagging</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">bagging</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix - Bagging (SMOTE+ADASYN)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Prediksi&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Aktual&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.9273255813953488
+
+Classification Report:
+               precision    recall  f1-score   support
+
+          cp       0.87      0.95      0.91        43
+          im       0.89      0.79      0.84        43
+         imL       1.00      1.00      1.00        43
+         imS       1.00      1.00      1.00        43
+         imU       0.86      0.86      0.86        43
+          om       0.95      0.86      0.90        43
+         omL       1.00      1.00      1.00        43
+          pp       0.85      0.95      0.90        43
+
+    accuracy                           0.93       344
+   macro avg       0.93      0.93      0.93       344
+weighted avg       0.93      0.93      0.93       344
+</pre></div>
+</div>
+<img alt="_images/003f45975e0f0f62cb330e62b06948aa579ca3a6adf7b659900a8de0b246a97e.png" src="_images/003f45975e0f0f62cb330e62b06948aa579ca3a6adf7b659900a8de0b246a97e.png" />
+</div>
+</div>
+<p>Model menunjukkan performa stabil dengan akurasi sekitar 93%.
+Sebagian besar kelas dapat diprediksi dengan sangat baik, bahkan beberapa mencapai hasil sempurna (imL, imS, omL).</p>
+<p>Tantangan utama ada pada kelas im, yang masih sulit dibedakan dari kelas lain sehingga recall-nya lebih rendah dibandingkan kelas lainnya.</p>
+</section>
+</section>
+<section id="visualisasi-akurasi-data-random-forest">
+<h2>Visualisasi akurasi data Random Forest<a class="headerlink" href="#visualisasi-akurasi-data-random-forest" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Masukkan nilai akurasi hasil eksperimen</span>
+<span class="n">acc_before</span> <span class="o">=</span> <span class="mf">0.82</span>      <span class="c1"># ganti dengan akurasi dataset asli</span>
+<span class="n">acc_smote</span> <span class="o">=</span> <span class="mf">0.94</span>       <span class="c1"># ganti dengan akurasi hasil SMOTE</span>
+<span class="n">acc_adasyn</span> <span class="o">=</span> <span class="mf">0.94</span>    <span class="c1"># akurasi hasil ADASYN</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Dataset&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Asli&quot;</span><span class="p">,</span> <span class="s2">&quot;SMOTE&quot;</span><span class="p">,</span> <span class="s2">&quot;ADASYN&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Akurasi&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">acc_before</span><span class="p">,</span> <span class="n">acc_smote</span><span class="p">,</span> <span class="n">acc_adasyn</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Dataset&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Akurasi&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Dataset&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;tab10&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Perbandingan Akurasi Random Forest&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Akurasi&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Dataset&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7d4886e24d6df58bde05aa499b12eb4aa503a7b4c8467cdf2a3078b25635f5b3.png" src="_images/7d4886e24d6df58bde05aa499b12eb4aa503a7b4c8467cdf2a3078b25635f5b3.png" />
+</div>
+</div>
+</section>
+<section id="visualisasi-akurasi-data-naive-bayes">
+<h2>Visualisasi akurasi data Naive Bayes<a class="headerlink" href="#visualisasi-akurasi-data-naive-bayes" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Masukkan nilai akurasi hasil eksperimen</span>
+<span class="n">acc_before</span> <span class="o">=</span> <span class="mf">0.78</span>     <span class="c1"># ganti dengan akurasi dataset asli</span>
+<span class="n">acc_smote</span> <span class="o">=</span> <span class="mf">0.81</span>       <span class="c1"># ganti dengan akurasi hasil SMOTE</span>
+<span class="n">acc_adasyn</span> <span class="o">=</span> <span class="mf">0.82</span>    <span class="c1"># akurasi hasil ADASYN</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Dataset&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Asli&quot;</span><span class="p">,</span> <span class="s2">&quot;SMOTE&quot;</span><span class="p">,</span> <span class="s2">&quot;ADASYN&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Akurasi&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">acc_before</span><span class="p">,</span> <span class="n">acc_smote</span><span class="p">,</span> <span class="n">acc_adasyn</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Dataset&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Akurasi&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Dataset&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;tab10&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Perbandingan Akurasi Naive Bayes&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Akurasi&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Dataset&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/54348c7e9a1ed83d54145a003b0048bdcc5b1492a60d825ce25f584fb5e38661.png" src="_images/54348c7e9a1ed83d54145a003b0048bdcc5b1492a60d825ce25f584fb5e38661.png" />
+</div>
+</div>
+</section>
+<section id="visualisasi-akurasi-data-esemble-bagging">
+<h2>Visualisasi akurasi data Esemble Bagging<a class="headerlink" href="#visualisasi-akurasi-data-esemble-bagging" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Masukkan nilai akurasi hasil eksperimen</span>
+<span class="n">acc_before</span> <span class="o">=</span> <span class="mf">0.82</span>     <span class="c1"># ganti dengan akurasi dataset asli</span>
+<span class="n">acc_smote</span> <span class="o">=</span> <span class="mf">0.924</span>       <span class="c1"># ganti dengan akurasi hasil SMOTE</span>
+<span class="n">acc_adasyn</span> <span class="o">=</span> <span class="mf">0.927</span>    <span class="c1"># akurasi hasil ADASYN</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Dataset&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Asli&quot;</span><span class="p">,</span> <span class="s2">&quot;SMOTE&quot;</span><span class="p">,</span> <span class="s2">&quot;ADASYN&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Akurasi&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">acc_before</span><span class="p">,</span> <span class="n">acc_smote</span><span class="p">,</span> <span class="n">acc_adasyn</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Dataset&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Akurasi&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Dataset&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;tab10&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Perbandingan Akurasi Esemble Bagging&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Akurasi&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Dataset&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/67c68961d40ee2215d41baea5d5e530ea637314ec77aa259db54c86e250bffbf.png" src="_images/67c68961d40ee2215d41baea5d5e530ea637314ec77aa259db54c86e250bffbf.png" />
+</div>
+</div>
 </section>
 <section id="visualisasi-data-akhir">
 <h2>Visualisasi data akhir<a class="headerlink" href="#visualisasi-data-akhir" title="Link to this heading">#</a></h2>
@@ -895,12 +1799,31 @@ Setelah SMOTE+ADASYN: {&#39;cp&#39;: 143, &#39;im&#39;: 143, &#39;imS&#39;: 143,
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-data-simpan-di-mysql">Download data, simpan di MYSQL</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-library">Installing library</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghubungkan-dan-menginisialisasi-dataset-awal">Menghubungkan dan menginisialisasi dataset awal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data-dengan-pca">Visualisasi Data dengan PCA</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penyeimbangan-data">Penyeimbangan Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smote">SMOTE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adasyn">ADASYN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data-dengan-pca">Visualisasi Data dengan PCA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jumlah-data-tiap-kelas">Jumlah data tiap kelas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-data-menggunakan-naive-bayes">Klasifikasi data menggunakan naive bayes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-data-menggunakan-random-forest">Klasifikasi data menggunakan random forest</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-data-menggunakan-esemble-bagging">Klasifikasi data menggunakan esemble bagging</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penyeimbangan-data">Penyeimbangan Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smote">SMOTE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-sebelum-dan-sesudah-smote">Perbandingan sebelum dan sesudah SMOTE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-data-menggunakan-naive-bayes-setelah-di-lakukan-smote">Klasifikasi data menggunakan naive bayes setelah di lakukan smote</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-data-menggunakan-random-forest-setelah-dilakukan-smote">Klasifikasi data menggunakan random forest setelah dilakukan smote</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-data-menggunakan-esemble-bagging-setelah-dilakukan-smote">Klasifikasi data menggunakan esemble bagging setelah dilakukan smote</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adasyn">ADASYN</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-data-sebelum-dan-setelah-di-adasyn">Perbandingan data sebelum dan setelah di adasyn</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-data-menggunakan-naive-bayes-setelah-dilakukan-adasyn">Klasifikasi data menggunakan naive bayes setelah dilakukan adasyn</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-data-menggunakan-random-forest-setelah-dilakukan-adasyn">Klasifikasi data menggunakan random forest setelah dilakukan adasyn</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-data-menggunakan-esemble-bagging-setelah-dilakukan-adasyn">Klasifikasi data menggunakan esemble bagging setelah dilakukan adasyn</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-akurasi-data-random-forest">Visualisasi akurasi data Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-akurasi-data-naive-bayes">Visualisasi akurasi data Naive Bayes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-akurasi-data-esemble-bagging">Visualisasi akurasi data Esemble Bagging</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data-akhir">Visualisasi data akhir</a></li>
 </ul>
   </nav></div>
