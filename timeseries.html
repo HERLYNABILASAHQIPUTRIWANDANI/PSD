@@ -407,8 +407,7 @@ document.write(`
 <ol class="arabic simple">
 <li><p>Koneksi ke OpenEO (Copernicus Data Space)</p></li>
 </ol>
-<p>Bagian pertama digunakan untuk terhubung ke server OpenEO, yaitu platform yang menyediakan akses ke berbagai dataset satelit milik Copernicus.
-Adek melakukan autentikasi lewat metode OIDC (OpenID Connect) agar bisa mengakses data yang disediakan.</p>
+<p>Bagian pertama digunakan untuk terhubung ke server OpenEO, yaitu platform yang menyediakan akses ke berbagai dataset satelit milik Copernicus. melakukan autentikasi lewat metode OIDC (OpenID Connect) agar bisa mengakses data yang disediakan.</p>
 <p>Intinya, tahap ini seperti “login” ke server data satelit supaya bisa mengambil data dari sana.</p>
 <ol class="arabic simple" start="2">
 <li><p>Menentukan Area of Interest (AOI)</p></li>
@@ -416,7 +415,7 @@ Adek melakukan autentikasi lewat metode OIDC (OpenID Connect) agar bisa mengakse
 <p>Tahap ini mendefinisikan wilayah yang ingin dianalisis.
 Wilayah tersebut ditentukan menggunakan koordinat geografis (longitude dan latitude) dalam bentuk poligon tertutup.</p>
 <ul class="simple">
-<li><p>Koordinat yang Adek masukkan menunjukkan area kecil di sekitar:</p></li>
+<li><p>Koordinat yang masukkan menunjukkan area kecil di sekitar:</p></li>
 <li><p>Bujur (longitude): sekitar 112.145 – 112.153</p></li>
 <li><p>Lintang (latitude): sekitar -7.247 – -7.237</p></li>
 </ul>
@@ -445,7 +444,7 @@ Maka, bagian ini berfungsi untuk menggabungkan semua data harian dan menghitung 
 </ol>
 <p>Setelah nilai harian dihitung, langkah selanjutnya adalah menghitung rata-rata secara spasial, yaitu rata-rata nilai dari seluruh piksel di dalam poligon AOI.</p>
 <p>Tujuannya:</p>
-<p>Mendapatkan satu angka representatif per hari, yang menggambarkan konsentrasi rata-rata NO₂ di seluruh area yang Adek tentukan.</p>
+<p>Mendapatkan satu angka representatif per hari, yang menggambarkan konsentrasi rata-rata NO₂ di seluruh area yang ditentukan.</p>
 <p>Hasil tahap ini biasanya berupa seri waktu (time series):
 tanggal → nilai rata-rata NO₂.</p>
 <ol class="arabic simple" start="6">
@@ -468,9 +467,7 @@ File ini bisa dibuka di software seperti:</p>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: openeo in /usr/local/python/3.12.1/lib/python3.12/site-packages (0.45.0)
 Requirement already satisfied: requests&gt;=2.26.0 in /home/codespace/.local/lib/python3.12/site-packages (from openeo) (2.32.4)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: urllib3&gt;=1.9.0 in /home/codespace/.local/lib/python3.12/site-packages (from openeo) (2.5.0)
+Requirement already satisfied: urllib3&gt;=1.9.0 in /home/codespace/.local/lib/python3.12/site-packages (from openeo) (2.5.0)
 Requirement already satisfied: shapely&gt;=1.6.4 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from openeo) (2.1.2)
 Requirement already satisfied: numpy&gt;=1.17.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from openeo) (2.2.6)
 Requirement already satisfied: xarray&lt;2025.01.2,&gt;=0.12.3 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from openeo) (2025.1.1)
@@ -478,17 +475,11 @@ Requirement already satisfied: pandas&gt;0.20.0 in /home/codespace/.local/lib/py
 Requirement already satisfied: pystac&gt;=1.5.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from openeo) (1.14.1)
 Requirement already satisfied: deprecated&gt;=1.2.12 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from openeo) (1.2.18)
 Requirement already satisfied: packaging&gt;=23.2 in /home/codespace/.local/lib/python3.12/site-packages (from xarray&lt;2025.01.2,&gt;=0.12.3-&gt;openeo) (25.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: wrapt&lt;2,&gt;=1.10 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from deprecated&gt;=1.2.12-&gt;openeo) (1.17.3)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/codespace/.local/lib/python3.12/site-packages (from pandas&gt;0.20.0-&gt;openeo) (2.9.0.post0)
+Requirement already satisfied: wrapt&lt;2,&gt;=1.10 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from deprecated&gt;=1.2.12-&gt;openeo) (1.17.3)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/codespace/.local/lib/python3.12/site-packages (from pandas&gt;0.20.0-&gt;openeo) (2.9.0.post0)
 Requirement already satisfied: pytz&gt;=2020.1 in /home/codespace/.local/lib/python3.12/site-packages (from pandas&gt;0.20.0-&gt;openeo) (2025.2)
 Requirement already satisfied: tzdata&gt;=2022.7 in /home/codespace/.local/lib/python3.12/site-packages (from pandas&gt;0.20.0-&gt;openeo) (2025.2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /home/codespace/.local/lib/python3.12/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas&gt;0.20.0-&gt;openeo) (1.17.0)
+Requirement already satisfied: six&gt;=1.5 in /home/codespace/.local/lib/python3.12/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas&gt;0.20.0-&gt;openeo) (1.17.0)
 Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/codespace/.local/lib/python3.12/site-packages (from requests&gt;=2.26.0-&gt;openeo) (3.4.2)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/codespace/.local/lib/python3.12/site-packages (from requests&gt;=2.26.0-&gt;openeo) (3.10)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /home/codespace/.local/lib/python3.12/site-packages (from requests&gt;=2.26.0-&gt;openeo) (2025.7.9)
@@ -562,7 +553,7 @@ Requirement already satisfied: certifi&gt;=2017.4.17 in /home/codespace/.local/l
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">Visit <a href="https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=OXIP-WMND" title="Authenticate at https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=OXIP-WMND" target="_blank" rel="noopener noreferrer">https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=OXIP-WMND</a> <a href="#" onclick="navigator.clipboard.writeText('https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=OXIP-WMND');return false;" title="Copy authentication URL to clipboard">&#128203;</a> to authenticate.</div><div class="output text_html"><code>[##################################---]</code> ⌛ Authorization pending</div><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<div class="output text_html">Visit <a href="https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=IJOW-YOCR" title="Authenticate at https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=IJOW-YOCR" target="_blank" rel="noopener noreferrer">https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=IJOW-YOCR</a> <a href="#" onclick="navigator.clipboard.writeText('https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=IJOW-YOCR');return false;" title="Copy authentication URL to clipboard">&#128203;</a> to authenticate.</div><div class="output text_html"><code>[##################################---]</code> ⌛ Authorization pending</div><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">openeo</span>
@@ -774,7 +765,7 @@ dict_keys([&#39;t&#39;, &#39;x&#39;, &#39;y&#39;, &#39;crs&#39;, &#39;NO2&#39;])
 <section id="transformasi-data-no2-menjadi-bentuk-supervised-learning">
 <h2>Transformasi Data NO₂ Menjadi Bentuk Supervised Learning<a class="headerlink" href="#transformasi-data-no2-menjadi-bentuk-supervised-learning" title="Link to this heading">#</a></h2>
 <p>Bagian kode ini digunakan untuk menyiapkan data NO₂ dalam format time series agar bisa digunakan dalam pemodelan prediksi (seperti regresi atau machine learning berbasis deret waktu). Berikut penjelasan langkah-langkahnya:</p>
-<ol class="arabic">
+<ol class="arabic simple">
 <li><p>Membaca data CSV hasil konversi sebelumnya
 File NO2_Modo.csv yang berisi data waktu dan konsentrasi NO₂ dibaca menggunakan pustaka pandas. Data ini kemudian diolah agar bisa dianalisis dalam bentuk deret waktu (time series).</p></li>
 <li><p>Mengubah kolom waktu menjadi format datetime
@@ -786,10 +777,8 @@ Jika ada data NO₂ yang kosong (NaN), nilainya diisi menggunakan metode interpo
 <li><p>Mengecek jumlah data yang masih kosong
 Setelah interpolasi, dilakukan pengecekan untuk memastikan tidak ada lagi data yang hilang.</p></li>
 <li><p>Membangun struktur data terawasi (supervised learning)
-Tujuan bagian ini adalah mengubah data deret waktu menjadi bentuk input-output yang bisa digunakan oleh model prediksi.</p>
-<p>Variabel n_lags = 4 artinya model akan mempertimbangkan 4 hari sebelumnya untuk memprediksi nilai hari ini.
-Dibuat kolom baru seperti NO2(t-4), NO2(t-3), NO2(t-2), dan NO2(t-1) sebagai fitur (input), serta NO2(t) sebagai target (output).</p>
-</li>
+Tujuan bagian ini adalah mengubah data deret waktu menjadi bentuk input-output yang bisa digunakan oleh model prediksi. Variabel n_lags = 4 artinya model akan mempertimbangkan 4 hari sebelumnya untuk memprediksi nilai hari ini.
+Dibuat kolom baru seperti NO2(t-4), NO2(t-3), NO2(t-2), dan NO2(t-1) sebagai fitur (input), serta NO2(t) sebagai target (output).</p></li>
 <li><p>Menghapus baris yang memiliki nilai kosong akibat pergeseran (shift)
 Karena pembentukan lag menyebabkan sebagian data awal tidak memiliki nilai lengkap, baris-baris kosong tersebut dihapus agar dataset bersih dan siap dipakai untuk pelatihan model.</p></li>
 <li><p>Menampilkan cuplikan dan informasi dataset hasil transformasi
@@ -1022,10 +1011,7 @@ memory usage: 165.9 MB</pre>
 <li><p>Memisahkan fitur (X) dan target (y)
 Dari dataset terawasi sebelumnya, dipilih empat kolom NO2(t-4), NO2(t-3), NO2(t-2), dan NO2(t-1) sebagai fitur input (X), sedangkan kolom NO2(t) dijadikan target output (y) yang akan diprediksi.</p></li>
 <li><p>Membuat objek normalisasi (MinMaxScaler)
-Digunakan fungsi MinMaxScaler dari pustaka scikit-learn untuk melakukan normalisasi min–max. Teknik ini mengubah semua nilai menjadi berada pada rentang 0 hingga 1.</p></li>
-</ol>
-<p>Hal ini penting karena variabel dengan skala besar (misalnya 1000) dapat mendominasi variabel lain jika tidak dinormalisasi.</p>
-<ol class="arabic simple" start="3">
+Digunakan fungsi MinMaxScaler dari pustaka scikit-learn untuk melakukan normalisasi min–max. Teknik ini mengubah semua nilai menjadi berada pada rentang 0 hingga 1. Hal ini penting karena variabel dengan skala besar (misalnya 1000) dapat mendominasi variabel lain jika tidak dinormalisasi.</p></li>
 <li><p>Menerapkan normalisasi pada fitur input
 Data fitur X kemudian diubah menggunakan metode fit_transform(). Proses ini menghitung nilai minimum dan maksimum setiap kolom, lalu mengonversi semua nilainya agar sesuai dengan skala 0–1.</p></li>
 <li><p>Mengembalikan indeks agar tidak hanya berdasarkan waktu
@@ -1099,23 +1085,29 @@ Semakin kecil nilai K, model lebih sensitif terhadap fluktuasi data; semakin bes
 <li><p>Menguji dua jenis pembobotan (weights)</p></li>
 </ol>
 <p>Kode menjalankan dua variasi model:</p>
-<p>uniform: semua tetangga memiliki bobot yang sama.</p>
-<p>distance: tetangga yang lebih dekat memiliki pengaruh lebih besar terhadap hasil prediksi.</p>
-<p>Untuk setiap variasi, model dilatih (fit) dan kemudian digunakan untuk memprediksi nilai NO₂ pada data uji (predict).</p>
+<ul class="simple">
+<li><p>uniform: semua tetangga memiliki bobot yang sama.</p></li>
+<li><p>distance: tetangga yang lebih dekat memiliki pengaruh lebih besar terhadap hasil prediksi.</p></li>
+<li><p>Untuk setiap variasi, model dilatih (fit) dan kemudian digunakan untuk memprediksi nilai NO₂ pada data uji (predict).</p></li>
+</ul>
 <ol class="arabic simple" start="5">
 <li><p>Mengukur kinerja model</p></li>
 </ol>
 <p>Dua metrik utama digunakan:</p>
-<p>RMSE (Root Mean Squared Error): menunjukkan seberapa besar kesalahan prediksi secara rata-rata. Semakin kecil nilainya, semakin baik model.</p>
-<p>R² (R-squared): menunjukkan seberapa baik model menjelaskan variasi data aktual. Nilai mendekati 1 berarti prediksi sangat baik.</p>
+<ul class="simple">
+<li><p>RMSE (Root Mean Squared Error): menunjukkan seberapa besar kesalahan prediksi secara rata-rata. Semakin kecil nilainya, semakin baik model.</p></li>
+<li><p>R² (R-squared): menunjukkan seberapa baik model menjelaskan variasi data aktual. Nilai mendekati 1 berarti prediksi sangat baik.</p></li>
+</ul>
 <ol class="arabic simple" start="6">
 <li><p>Visualisasi hasil prediksi</p></li>
 </ol>
 <p>Hasil aktual dan hasil prediksi ditampilkan dalam dua grafik terpisah:</p>
-<p>Grafik pertama menampilkan model dengan uniform weight.</p>
-<p>Grafik kedua menampilkan model dengan distance weight.</p>
-<p>Warna oranye menunjukkan nilai aktual, sementara biru tua (navy) menunjukkan hasil prediksi.
-Judul setiap grafik juga menampilkan nilai RMSE dan R² agar mudah membandingkan performa antar model.</p>
+<ul class="simple">
+<li><p>Grafik pertama menampilkan model dengan uniform weight.</p></li>
+<li><p>Grafik kedua menampilkan model dengan distance weight.</p></li>
+<li><p>Warna oranye menunjukkan nilai aktual, sementara biru tua (navy) menunjukkan hasil prediksi.
+Judul setiap grafik juga menampilkan nilai RMSE dan R² agar mudah membandingkan performa antar model.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
