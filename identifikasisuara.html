@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Identifikasi 2 Suara &#8212; Welcome to Herly Nabila Jupyter Book</title>
+    <title>Identifikasi 2 Suara Buka dan Tutup &#8212; Welcome to Herly Nabila Jupyter Book</title>
   
   
   
@@ -190,7 +190,7 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="timeseries.html">Time Series Dataset untuk Prediksi</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="deploytimeseries.html">DEPLOYMENT SYSTEM TIME SERIES</a></li>
 <li class="toctree-l2"><a class="reference internal" href="VoicePredict.html">SISTEM IDENTIFIKASI SUARA UNTUK KLASIFIKASI AKTIVITAS BUKA DAN TUTUP</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Identifikasi 2 Suara</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Identifikasi 2 Suara Buka dan Tutup</a></li>
 </ul>
 </details></li>
 </ul>
@@ -378,7 +378,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Identifikasi 2 Suara</h1>
+    <h1>Identifikasi 2 Suara Buka dan Tutup</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -414,8 +414,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="identifikasi-2-suara">
-<h1>Identifikasi 2 Suara<a class="headerlink" href="#identifikasi-2-suara" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="identifikasi-2-suara-buka-dan-tutup">
+<h1>Identifikasi 2 Suara Buka dan Tutup<a class="headerlink" href="#identifikasi-2-suara-buka-dan-tutup" title="Link to this heading">#</a></h1>
 <section id="langkah-pertama-membuat-dataset-awal">
 <h2>Langkah Pertama: Membuat Dataset Awal<a class="headerlink" href="#langkah-pertama-membuat-dataset-awal" title="Link to this heading">#</a></h2>
 <p>Langkah pertama yang dilakukan adalah menjalankan file generate <a class="reference external" href="http://dataset.py">dataset.py</a> untuk membentuk dataset awal yang akan digunakan pada tahap pelatihan model. Pada proses ini, program akan memeriksa apakah file data/voice_dataset.csv sudah tersedia. Jika file tersebut belum ada, fungsi create_dataset() dari modul feature_extraction.py akan dijalankan untuk membuat dataset baru dengan mengekstraksi fitur dari seluruh file suara berformat .wav yang berada di dalam folder data/. Proses ekstraksi fitur dilakukan dengan memanfaatkan pustaka Librosa, yang menghasilkan berbagai fitur seperti MFCC, chroma, spectral contrast, zero crossing rate, RMS, spectral centroid, bandwidth, dan rolloff. Setiap file suara dikaitkan dengan label pengguna (user1 atau user2) dan kondisi (buka atau tutup). Setelah semua data terkumpul, hasil ekstraksi disimpan dalam bentuk tabel DataFrame dan kemudian diekspor ke dalam file CSV. Tahap ini bertujuan untuk memastikan data suara telah diubah menjadi bentuk numerik yang dapat digunakan pada proses pelatihan model klasifikasi selanjutnya.</p>
