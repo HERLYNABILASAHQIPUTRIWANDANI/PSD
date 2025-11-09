@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'VoicePredict';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Identifikasi 2 Suara" href="identifikasisuara.html" />
     <link rel="prev" title="DEPLOYMENT SYSTEM TIME SERIES" href="deploytimeseries.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -189,7 +190,8 @@
 <li class="toctree-l1"><a class="reference internal" href="penyeimbangdata.html">Penyeimbangan dataset (SMOTE, ADASYN)</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="timeseries.html">Time Series Dataset untuk Prediksi</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="deploytimeseries.html">DEPLOYMENT SYSTEM TIME SERIES</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#"><strong>SISTEM IDENTIFIKASI SUARA UNTUK KLASIFIKASI AKTIVITAS BUKA DAN TUTUP</strong></a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">SISTEM IDENTIFIKASI SUARA UNTUK KLASIFIKASI AKTIVITAS BUKA DAN TUTUP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="identifikasisuara.html">Identifikasi 2 Suara</a></li>
 </ul>
 </details></li>
 </ul>
@@ -407,7 +409,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="sistem-identifikasi-suara-untuk-klasifikasi-aktivitas-buka-dan-tutup">
-<h1><strong>SISTEM IDENTIFIKASI SUARA UNTUK KLASIFIKASI AKTIVITAS BUKA DAN TUTUP</strong><a class="headerlink" href="#sistem-identifikasi-suara-untuk-klasifikasi-aktivitas-buka-dan-tutup" title="Link to this heading">#</a></h1>
+<h1>SISTEM IDENTIFIKASI SUARA UNTUK KLASIFIKASI AKTIVITAS BUKA DAN TUTUP<a class="headerlink" href="#sistem-identifikasi-suara-untuk-klasifikasi-aktivitas-buka-dan-tutup" title="Link to this heading">#</a></h1>
 <p>Proyek ini dibuat untuk mengklasifikasikan suara manusia ke dalam kategori tertentu — yaitu suara “buka” dan “tutup”. Sistem dikembangkan menggunakan bahasa pemrograman Python dengan memanfaatkan beberapa pustaka utama: Streamlit untuk membangun antarmuka web, Librosa untuk mengekstraksi fitur dari sinyal audio, dan Scikit-learn untuk melakukan pelatihan serta prediksi menggunakan algoritma <strong>Random Forest Classifier</strong>.</p>
 <p>Alur kerja aplikasi dimulai dari pemrosesan dataset suara yang disimpan dalam format CSV, dilanjutkan dengan ekstraksi fitur audio, pelatihan model klasifikasi, penyimpanan model hasil pelatihan, hingga tahap akhir berupa peluncuran aplikasi berbasis web yang mampu mengenali suara secara langsung (real-time).</p>
 <section id="proses-pelatihan-model-train-model-py">
@@ -632,6 +634,15 @@ Ketiga fitur ini masing-masing diambil nilai rata-rata dan standar deviasinya.</
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">DEPLOYMENT SYSTEM TIME SERIES</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="identifikasisuara.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Identifikasi 2 Suara</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
