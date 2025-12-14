@@ -394,13 +394,16 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#business-understanding"><strong>Business Understanding</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-proyek"><strong>Tujuan Proyek</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-analisis"><strong>Tujuan Analisis</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upload-dataset-ke-google-colab"><strong>Upload Dataset ke Google Colab</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-path-file-dataset"><strong>Menentukan Path File Dataset</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-isi-file-zip-dataset"><strong>Eksplorasi Isi File ZIP Dataset</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membaca-data-training-dari-file-zip"><strong>Membaca Data Training dari File ZIP</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memahami-data-eksplorasi-data-eda"><strong>Memahami Data (Eksplorasi Data/EDA)</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation"><strong>Data Preparation</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upload-dataset-ke-google-colab"><strong>Upload Dataset ke Google Colab</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-path-file-dataset"><strong>Menentukan Path File Dataset</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-isi-file-zip-dataset"><strong>Eksplorasi Isi File ZIP Dataset</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membaca-data-training-dari-file-zip"><strong>Membaca Data Training dari File ZIP</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding-eksplorasi-data-eda"><strong>Data Understanding (Eksplorasi Data/EDA)</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jumlah-sampel-600-time-series"><strong>1. Jumlah Sampel: 600 Time-Series</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#panjang-tiap-time-series-60-data-point"><strong>2. Panjang Tiap Time-Series: 60 Data Point</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jumlah-kelas-6-pola-perilaku-sinyal"><strong>3. Jumlah Kelas: 6 Pola Perilaku Sinyal</strong></a></li>
@@ -417,9 +420,9 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemodelan-data"><strong>Pemodelan Data</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pelatihan-model-svm-support-vector-machine-dengan-kernel-rbf"><strong>Pelatihan Model SVM (Support Vector Machine) dengan Kernel RBF</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-model-menggunakan-akurasi-classification-report-dan-confusion-matrix"><strong>Evaluasi Model Menggunakan Akurasi, Classification Report, dan Confusion Matrix</strong></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-model-menggunakan-akurasi-classification-report-dan-confusion-matrix"><strong>Evaluasi Model Menggunakan Akurasi, Classification Report, dan Confusion Matrix</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tampilan"><strong>Tampilan</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#link-deploy"><strong>Link Deploy</strong></a></li>
 </ul>
@@ -458,6 +461,9 @@ document.write(`
 <li><p>Menjadi dasar sistem pendeteksi pola untuk aplikasi monitoring, forecasting, dan quality control</p></li>
 </ul>
 </section>
+</section>
+<section id="data-preparation">
+<h2><strong>Data Preparation</strong><a class="headerlink" href="#data-preparation" title="Link to this heading">#</a></h2>
 <section id="upload-dataset-ke-google-colab">
 <h3><strong>Upload Dataset ke Google Colab</strong><a class="headerlink" href="#upload-dataset-ke-google-colab" title="Link to this heading">#</a></h3>
 <p>Langkah ini digunakan untuk memasukkan dataset dari komputer lokal ke environment Google Colab agar bisa diproses menggunakan Python.</p>
@@ -482,9 +488,8 @@ document.write(`
 </div>
 </div>
 </section>
-</section>
 <section id="menentukan-path-file-dataset">
-<h2><strong>Menentukan Path File Dataset</strong><a class="headerlink" href="#menentukan-path-file-dataset" title="Link to this heading">#</a></h2>
+<h3><strong>Menentukan Path File Dataset</strong><a class="headerlink" href="#menentukan-path-file-dataset" title="Link to this heading">#</a></h3>
 <p>Path file digunakan untuk memudahkan pemanggilan dataset pada proses selanjutnya tanpa perlu menulis ulang nama file.</p>
 <p>Baris kode <code class="docutils literal notranslate"><span class="pre">zip_path</span> <span class="pre">=</span> <span class="pre">&quot;SyntheticControl.zip&quot;</span></code> digunakan untuk menentukan nama atau lokasi file ZIP yang akan diproses oleh program. Nilai tersebut disimpan dalam variabel <code class="docutils literal notranslate"><span class="pre">zip_path</span></code> sehingga dapat digunakan kembali pada baris kode berikutnya tanpa perlu menuliskan nama file secara berulang. Dalam konteks pemrosesan dataset, baris ini memberi tahu program bahwa dataset yang ingin dibaca atau diekstrak berada dalam file bernama <strong>SyntheticControl.zip</strong> yang terletak di direktori kerja saat ini. Variabel ini kemudian biasanya dipakai bersama modul <code class="docutils literal notranslate"><span class="pre">zipfile</span></code> untuk membuka, membaca, atau mengekstrak isi file ZIP tersebut. Dengan kata lain, baris ini hanyalah penanda lokasi file ZIP agar program dapat mengaksesnya dengan mudah dan konsisten.</p>
 <div class="cell docutils container">
@@ -496,7 +501,7 @@ document.write(`
 </div>
 </section>
 <section id="eksplorasi-isi-file-zip-dataset">
-<h2><strong>Eksplorasi Isi File ZIP Dataset</strong><a class="headerlink" href="#eksplorasi-isi-file-zip-dataset" title="Link to this heading">#</a></h2>
+<h3><strong>Eksplorasi Isi File ZIP Dataset</strong><a class="headerlink" href="#eksplorasi-isi-file-zip-dataset" title="Link to this heading">#</a></h3>
 <p>Langkah ini dilakukan untuk memastikan file dataset yang dibutuhkan, seperti data training dan testing, tersedia di dalam file ZIP.</p>
 <p>Kode tersebut digunakan untuk <strong>membuka file ZIP dan menampilkan daftar file di dalamnya</strong>. Pertama, modul <code class="docutils literal notranslate"><span class="pre">zipfile</span></code> di-import karena diperlukan untuk bekerja dengan file berformat ZIP. Kemudian, variabel <code class="docutils literal notranslate"><span class="pre">zip_path</span></code> menyimpan nama file ZIP yang akan dibaca, yaitu <em>SyntheticControl.zip</em>. Selanjutnya, perintah <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">zipfile.ZipFile(zip_path,</span> <span class="pre">'r')</span> <span class="pre">as</span> <span class="pre">z:</span></code> membuka file ZIP tersebut dalam mode baca (<code class="docutils literal notranslate"><span class="pre">'r'</span></code>) menggunakan konteks <em>with</em>, sehingga file akan otomatis ditutup setelah selesai digunakan. Di dalam blok itu, fungsi <code class="docutils literal notranslate"><span class="pre">z.namelist()</span></code> dipanggil untuk mengambil dan mencetak daftar seluruh file atau folder yang ada di dalam ZIP. Secara sederhana, kode ini berfungsi untuk melihat isi paket ZIP tanpa perlu mengekstraknya terlebih dahulu.</p>
 <div class="cell docutils container">
@@ -518,7 +523,7 @@ document.write(`
 </div>
 </section>
 <section id="membaca-data-training-dari-file-zip">
-<h2><strong>Membaca Data Training dari File ZIP</strong><a class="headerlink" href="#membaca-data-training-dari-file-zip" title="Link to this heading">#</a></h2>
+<h3><strong>Membaca Data Training dari File ZIP</strong><a class="headerlink" href="#membaca-data-training-dari-file-zip" title="Link to this heading">#</a></h3>
 <p>Data dibaca langsung dari file ZIP tanpa mengekstraknya ke folder, kemudian dimuat ke dalam bentuk yang bisa diproses oleh Python.</p>
 <p>Kode ini memanfaatkan modul <code class="docutils literal notranslate"><span class="pre">zipfile</span></code> untuk membaca isi file <em>SyntheticControl.zip</em> tanpa harus mengekstraknya ke folder. Variabel <code class="docutils literal notranslate"><span class="pre">zip_path</span></code> menyimpan nama file ZIP yang akan diakses. Kemudian blok <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">zipfile.ZipFile(zip_path,</span> <span class="pre">&quot;r&quot;)</span> <span class="pre">as</span> <span class="pre">z:</span></code> membuka file ZIP dalam mode baca sehingga Python dapat mengakses berkas-berkas di dalamnya. Di dalam blok tersebut, fungsi <code class="docutils literal notranslate"><span class="pre">z.open(&quot;SyntheticControl_TRAIN.txt&quot;)</span></code> digunakan untuk membuka file <em>SyntheticControl_TRAIN.txt</em> yang ada di dalam ZIP. Isi file tersebut dibaca menggunakan <code class="docutils literal notranslate"><span class="pre">.read()</span></code>, dikonversi menjadi teks dengan <code class="docutils literal notranslate"><span class="pre">.decode(&quot;utf-8&quot;)</span></code>, lalu dipisahkan menjadi daftar baris menggunakan <code class="docutils literal notranslate"><span class="pre">.splitlines()</span></code>. Hasil akhirnya disimpan ke dalam variabel <code class="docutils literal notranslate"><span class="pre">train_lines</span></code>. Pada baris terakhir, <code class="docutils literal notranslate"><span class="pre">train_lines[:10]</span></code> digunakan untuk menampilkan <strong>10 baris pertama</strong> dari file training, sehingga kita bisa melihat contoh data Synthetic Control langsung dari file ZIP.</p>
 <div class="cell docutils container">
@@ -550,8 +555,9 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="memahami-data-eksplorasi-data-eda">
-<h2><strong>Memahami Data (Eksplorasi Data/EDA)</strong><a class="headerlink" href="#memahami-data-eksplorasi-data-eda" title="Link to this heading">#</a></h2>
+</section>
+<section id="data-understanding-eksplorasi-data-eda">
+<h2><strong>Data Understanding (Eksplorasi Data/EDA)</strong><a class="headerlink" href="#data-understanding-eksplorasi-data-eda" title="Link to this heading">#</a></h2>
 <p>Dataset <strong>Synthetic Control</strong> merupakan dataset time series terstruktur yang terdiri dari 600 sampel sinyal buatan. Setiap sampel mewakili satu rangkaian data pengukuran yang berubah terhadap waktu. Secara keseluruhan, dataset ini dirancang untuk mensimulasikan berbagai pola sinyal yang sering muncul dalam dunia industri, manufaktur, maupun monitoring sensor. Berikut detail lengkap struktur datanya:</p>
 <section id="jumlah-sampel-600-time-series">
 <h3><strong>1. Jumlah Sampel: 600 Time-Series</strong><a class="headerlink" href="#jumlah-sampel-600-time-series" title="Link to this heading">#</a></h3>
@@ -1231,8 +1237,9 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>SVC(C=1)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>SVC</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.svm.SVC.html">?<span>Documentation for SVC</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>SVC(C=1)</pre></div> </div></div></div></div></div></div>
 </div>
 </section>
+</section>
 <section id="evaluasi-model-menggunakan-akurasi-classification-report-dan-confusion-matrix">
-<h3><strong>Evaluasi Model Menggunakan Akurasi, Classification Report, dan Confusion Matrix</strong><a class="headerlink" href="#evaluasi-model-menggunakan-akurasi-classification-report-dan-confusion-matrix" title="Link to this heading">#</a></h3>
+<h2><strong>Evaluasi Model Menggunakan Akurasi, Classification Report, dan Confusion Matrix</strong><a class="headerlink" href="#evaluasi-model-menggunakan-akurasi-classification-report-dan-confusion-matrix" title="Link to this heading">#</a></h2>
 <p>Evaluasi dilakukan untuk mengukur performa model, melihat tingkat ketepatan prediksi, serta mengetahui kesalahan klasifikasi pada setiap kelas.</p>
 <p>Kode ini digunakan untuk mengevaluasi performa model SVM yang telah dilatih sebelumnya. Pertama, model melakukan prediksi terhadap data uji melalui <code class="docutils literal notranslate"><span class="pre">model.predict(X_test_scaled)</span></code> sehingga menghasilkan label prediksi <code class="docutils literal notranslate"><span class="pre">y_pred</span></code>. Nilai akurasi kemudian dihitung dengan <code class="docutils literal notranslate"><span class="pre">accuracy_score(y_test,</span> <span class="pre">y_pred)</span></code> untuk mengetahui persentase prediksi yang benar dibandingkan total data uji. Selanjutnya, fungsi <code class="docutils literal notranslate"><span class="pre">classification_report()</span></code> menampilkan metrik evaluasi lebih lengkap seperti <strong>precision</strong>, <strong>recall</strong>, dan <strong>F1-score</strong> untuk masing-masing kelas, sehingga membantu melihat kelas mana yang diprediksi dengan baik dan mana yang masih sulit dibedakan oleh model.</p>
 <p>Setelah itu, dibuat <strong>confusion matrix</strong> menggunakan <code class="docutils literal notranslate"><span class="pre">confusion_matrix(y_test,</span> <span class="pre">y_pred)</span></code> untuk menggambarkan perbandingan antara label sebenarnya dan label prediksi. Confusion matrix ini divisualisasikan menggunakan <code class="docutils literal notranslate"><span class="pre">sns.heatmap()</span></code> dengan anotasi angka dan warna gradasi biru agar mudah dibaca. Label sumbu “Predicted” dan “Actual” menunjukkan arah perbandingan antara prediksi model dan kondisi sebenarnya. Visualisasi ini sangat berguna untuk melihat pola kesalahan model, misalnya kelas mana yang sering tertukar atau sulit dipisahkan dari kelas lain.</p>
@@ -1282,7 +1289,6 @@ weighted avg       0.98      0.98      0.98       300
 <img alt="_images/783d4dc93475ca927a1cb24cda2025f8791278b3ff99a99d3ea0d8d6be40a162.png" src="_images/783d4dc93475ca927a1cb24cda2025f8791278b3ff99a99d3ea0d8d6be40a162.png" />
 </div>
 </div>
-</section>
 </section>
 <section id="tampilan">
 <h2><strong>Tampilan</strong><a class="headerlink" href="#tampilan" title="Link to this heading">#</a></h2>
@@ -1354,13 +1360,16 @@ weighted avg       0.98      0.98      0.98       300
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#business-understanding"><strong>Business Understanding</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-proyek"><strong>Tujuan Proyek</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-analisis"><strong>Tujuan Analisis</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upload-dataset-ke-google-colab"><strong>Upload Dataset ke Google Colab</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-path-file-dataset"><strong>Menentukan Path File Dataset</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-isi-file-zip-dataset"><strong>Eksplorasi Isi File ZIP Dataset</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#membaca-data-training-dari-file-zip"><strong>Membaca Data Training dari File ZIP</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memahami-data-eksplorasi-data-eda"><strong>Memahami Data (Eksplorasi Data/EDA)</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation"><strong>Data Preparation</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upload-dataset-ke-google-colab"><strong>Upload Dataset ke Google Colab</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-path-file-dataset"><strong>Menentukan Path File Dataset</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-isi-file-zip-dataset"><strong>Eksplorasi Isi File ZIP Dataset</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membaca-data-training-dari-file-zip"><strong>Membaca Data Training dari File ZIP</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding-eksplorasi-data-eda"><strong>Data Understanding (Eksplorasi Data/EDA)</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jumlah-sampel-600-time-series"><strong>1. Jumlah Sampel: 600 Time-Series</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#panjang-tiap-time-series-60-data-point"><strong>2. Panjang Tiap Time-Series: 60 Data Point</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jumlah-kelas-6-pola-perilaku-sinyal"><strong>3. Jumlah Kelas: 6 Pola Perilaku Sinyal</strong></a></li>
@@ -1377,9 +1386,9 @@ weighted avg       0.98      0.98      0.98       300
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemodelan-data"><strong>Pemodelan Data</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pelatihan-model-svm-support-vector-machine-dengan-kernel-rbf"><strong>Pelatihan Model SVM (Support Vector Machine) dengan Kernel RBF</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-model-menggunakan-akurasi-classification-report-dan-confusion-matrix"><strong>Evaluasi Model Menggunakan Akurasi, Classification Report, dan Confusion Matrix</strong></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-model-menggunakan-akurasi-classification-report-dan-confusion-matrix"><strong>Evaluasi Model Menggunakan Akurasi, Classification Report, dan Confusion Matrix</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tampilan"><strong>Tampilan</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#link-deploy"><strong>Link Deploy</strong></a></li>
 </ul>
