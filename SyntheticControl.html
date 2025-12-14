@@ -396,13 +396,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-analisis"><strong>Tujuan Analisis</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation"><strong>Data Preparation</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upload-dataset-ke-google-colab"><strong>Upload Dataset ke Google Colab</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-path-file-dataset"><strong>Menentukan Path File Dataset</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-isi-file-zip-dataset"><strong>Eksplorasi Isi File ZIP Dataset</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membaca-data-training-dari-file-zip"><strong>Membaca Data Training dari File ZIP</strong></a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding-eksplorasi-data-eda"><strong>Data Understanding (Eksplorasi Data/EDA)</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jumlah-sampel-600-time-series"><strong>1. Jumlah Sampel: 600 Time-Series</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#panjang-tiap-time-series-60-data-point"><strong>2. Panjang Tiap Time-Series: 60 Data Point</strong></a></li>
@@ -410,6 +403,13 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jumlah-data-per-kelas-100-time-series-tiap-kategori"><strong>4. Jumlah Data per Kelas: 100 Time-Series Tiap Kategori</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pola-dibuat-dengan-fungsi-matematis"><strong>5. Pola Dibuat dengan Fungsi Matematis</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ada-noise-atau-gangguan-kecil-pada-tiap-sampel"><strong>6. Ada Noise atau Gangguan Kecil pada Tiap Sampel</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation"><strong>Data Preparation</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upload-dataset-ke-google-colab"><strong>Upload Dataset ke Google Colab</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-path-file-dataset"><strong>Menentukan Path File Dataset</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-isi-file-zip-dataset"><strong>Eksplorasi Isi File ZIP Dataset</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membaca-data-training-dari-file-zip"><strong>Membaca Data Training dari File ZIP</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-awal-struktur-data"><strong>Pemeriksaan Awal Struktur Data</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memuat-dan-memisahkan-dataset-load-split-dataset"><strong>Memuat dan Memisahkan Dataset (Load &amp; Split Dataset)</strong></a></li>
 </ul>
@@ -460,6 +460,35 @@ document.write(`
 <li><p>Mengidentifikasi pola deret waktu secara otomatis</p></li>
 <li><p>Menjadi dasar sistem pendeteksi pola untuk aplikasi monitoring, forecasting, dan quality control</p></li>
 </ul>
+</section>
+</section>
+<section id="data-understanding-eksplorasi-data-eda">
+<h2><strong>Data Understanding (Eksplorasi Data/EDA)</strong><a class="headerlink" href="#data-understanding-eksplorasi-data-eda" title="Link to this heading">#</a></h2>
+<p>Dataset <strong>Synthetic Control</strong> merupakan dataset time series terstruktur yang terdiri dari 600 sampel sinyal buatan. Setiap sampel mewakili satu rangkaian data pengukuran yang berubah terhadap waktu. Secara keseluruhan, dataset ini dirancang untuk mensimulasikan berbagai pola sinyal yang sering muncul dalam dunia industri, manufaktur, maupun monitoring sensor. Berikut detail lengkap struktur datanya:</p>
+<section id="jumlah-sampel-600-time-series">
+<h3><strong>1. Jumlah Sampel: 600 Time-Series</strong><a class="headerlink" href="#jumlah-sampel-600-time-series" title="Link to this heading">#</a></h3>
+<p>Dataset ini memiliki total <strong>600 data time series</strong>, di mana setiap satu baris mewakili <strong>satu sinyal lengkap</strong>. Sinyal tersebut dibuat menggunakan fungsi matematika seperti sinus, tren linear, dan perubahan mendadak, sehingga mampu meniru pola umum yang biasanya terjadi pada sensor di dunia nyata. Dengan jumlah data sebanyak 600, dataset ini cukup besar untuk melatih model machine learning dan sekaligus mengevaluasi performanya.</p>
+</section>
+<section id="panjang-tiap-time-series-60-data-point">
+<h3><strong>2. Panjang Tiap Time-Series: 60 Data Point</strong><a class="headerlink" href="#panjang-tiap-time-series-60-data-point" title="Link to this heading">#</a></h3>
+<p>Setiap time series terdiri dari <strong>60 titik data</strong> yang diambil secara berurutan. Angka-angka ini bisa dianggap sebagai nilai sensor pada waktu ke-1 sampai waktu ke-60. Dalam konteks dunia nyata, 60 titik ini bisa mewakili pengukuran per detik selama 1 menit, per milidetik selama 60 ms, atau interval lain tergantung definisi sistem. Panjang data yang konsisten memudahkan proses pelatihan algoritma karena setiap sampel memiliki dimensi yang sama.</p>
+</section>
+<section id="jumlah-kelas-6-pola-perilaku-sinyal">
+<h3><strong>3. Jumlah Kelas: 6 Pola Perilaku Sinyal</strong><a class="headerlink" href="#jumlah-kelas-6-pola-perilaku-sinyal" title="Link to this heading">#</a></h3>
+<p>Dataset Synthetic Control terbagi menjadi <strong>6 kategori pola</strong> yang berbeda. Setiap kelas merepresentasikan bentuk sinyal tertentu yang mengindikasikan kondisi atau perilaku spesifik. Kelas-kelas tersebut misalnya mencerminkan pola stabil, pola naik-turun periodik, pola menaik, pola menurun, maupun pola yang berubah mendadak. Setiap kelas menyediakan contoh variasi bentuk sinyal yang khas sehingga memaksa model untuk belajar membedakan bentuk, bukan nilai absolut.</p>
+</section>
+<section id="jumlah-data-per-kelas-100-time-series-tiap-kategori">
+<h3><strong>4. Jumlah Data per Kelas: 100 Time-Series Tiap Kategori</strong><a class="headerlink" href="#jumlah-data-per-kelas-100-time-series-tiap-kategori" title="Link to this heading">#</a></h3>
+<p>Setiap kelas berisi <strong>100 sampel</strong>, sehingga totalnya 6 × 100 = 600. Pembagian yang seimbang (balanced dataset) ini sangat penting dalam machine learning, karena model tidak akan condong ke salah satu kelas. Tiap sampel dalam satu kelas memiliki pola dasar yang sama, tetapi ditambahkan <em>noise</em> acak sehingga tetap bervariasi. Noise ini membuat dataset terlihat lebih realistis seperti data sensor asli yang biasanya tidak mulus.</p>
+</section>
+<section id="pola-dibuat-dengan-fungsi-matematis">
+<h3><strong>5. Pola Dibuat dengan Fungsi Matematis</strong><a class="headerlink" href="#pola-dibuat-dengan-fungsi-matematis" title="Link to this heading">#</a></h3>
+<p>Seluruh data adalah <strong>sinyal buatan (sintetis)</strong>, bukan rekaman dari mesin nyata. Angka-angka dihasilkan menggunakan persamaan matematis sehingga masing-masing kelas memiliki pola dasar yang sangat jelas. Tujuannya agar dataset menjadi standar benchmark internasional dalam penelitian <em>time series classification</em>.</p>
+</section>
+<section id="ada-noise-atau-gangguan-kecil-pada-tiap-sampel">
+<h3><strong>6. Ada Noise atau Gangguan Kecil pada Tiap Sampel</strong><a class="headerlink" href="#ada-noise-atau-gangguan-kecil-pada-tiap-sampel" title="Link to this heading">#</a></h3>
+<p>Meskipun pola dasar tiap kelas sama, setiap sampel diberi gangguan acak (<strong>Gaussian noise</strong>) agar lebih menyerupai sinyal pada mesin sungguhan. Noise ini membuat model tidak bisa menghafal pola mentah dan harus benar-benar belajar mengenali bentuk global sinyal.</p>
+<p>Kolom pertama menyimpan label kelas (1–6), sedangkan 60 kolom berikutnya adalah nilai time series.</p>
 </section>
 </section>
 <section id="data-preparation">
@@ -554,35 +583,6 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="data-understanding-eksplorasi-data-eda">
-<h2><strong>Data Understanding (Eksplorasi Data/EDA)</strong><a class="headerlink" href="#data-understanding-eksplorasi-data-eda" title="Link to this heading">#</a></h2>
-<p>Dataset <strong>Synthetic Control</strong> merupakan dataset time series terstruktur yang terdiri dari 600 sampel sinyal buatan. Setiap sampel mewakili satu rangkaian data pengukuran yang berubah terhadap waktu. Secara keseluruhan, dataset ini dirancang untuk mensimulasikan berbagai pola sinyal yang sering muncul dalam dunia industri, manufaktur, maupun monitoring sensor. Berikut detail lengkap struktur datanya:</p>
-<section id="jumlah-sampel-600-time-series">
-<h3><strong>1. Jumlah Sampel: 600 Time-Series</strong><a class="headerlink" href="#jumlah-sampel-600-time-series" title="Link to this heading">#</a></h3>
-<p>Dataset ini memiliki total <strong>600 data time series</strong>, di mana setiap satu baris mewakili <strong>satu sinyal lengkap</strong>. Sinyal tersebut dibuat menggunakan fungsi matematika seperti sinus, tren linear, dan perubahan mendadak, sehingga mampu meniru pola umum yang biasanya terjadi pada sensor di dunia nyata. Dengan jumlah data sebanyak 600, dataset ini cukup besar untuk melatih model machine learning dan sekaligus mengevaluasi performanya.</p>
-</section>
-<section id="panjang-tiap-time-series-60-data-point">
-<h3><strong>2. Panjang Tiap Time-Series: 60 Data Point</strong><a class="headerlink" href="#panjang-tiap-time-series-60-data-point" title="Link to this heading">#</a></h3>
-<p>Setiap time series terdiri dari <strong>60 titik data</strong> yang diambil secara berurutan. Angka-angka ini bisa dianggap sebagai nilai sensor pada waktu ke-1 sampai waktu ke-60. Dalam konteks dunia nyata, 60 titik ini bisa mewakili pengukuran per detik selama 1 menit, per milidetik selama 60 ms, atau interval lain tergantung definisi sistem. Panjang data yang konsisten memudahkan proses pelatihan algoritma karena setiap sampel memiliki dimensi yang sama.</p>
-</section>
-<section id="jumlah-kelas-6-pola-perilaku-sinyal">
-<h3><strong>3. Jumlah Kelas: 6 Pola Perilaku Sinyal</strong><a class="headerlink" href="#jumlah-kelas-6-pola-perilaku-sinyal" title="Link to this heading">#</a></h3>
-<p>Dataset Synthetic Control terbagi menjadi <strong>6 kategori pola</strong> yang berbeda. Setiap kelas merepresentasikan bentuk sinyal tertentu yang mengindikasikan kondisi atau perilaku spesifik. Kelas-kelas tersebut misalnya mencerminkan pola stabil, pola naik-turun periodik, pola menaik, pola menurun, maupun pola yang berubah mendadak. Setiap kelas menyediakan contoh variasi bentuk sinyal yang khas sehingga memaksa model untuk belajar membedakan bentuk, bukan nilai absolut.</p>
-</section>
-<section id="jumlah-data-per-kelas-100-time-series-tiap-kategori">
-<h3><strong>4. Jumlah Data per Kelas: 100 Time-Series Tiap Kategori</strong><a class="headerlink" href="#jumlah-data-per-kelas-100-time-series-tiap-kategori" title="Link to this heading">#</a></h3>
-<p>Setiap kelas berisi <strong>100 sampel</strong>, sehingga totalnya 6 × 100 = 600. Pembagian yang seimbang (balanced dataset) ini sangat penting dalam machine learning, karena model tidak akan condong ke salah satu kelas. Tiap sampel dalam satu kelas memiliki pola dasar yang sama, tetapi ditambahkan <em>noise</em> acak sehingga tetap bervariasi. Noise ini membuat dataset terlihat lebih realistis seperti data sensor asli yang biasanya tidak mulus.</p>
-</section>
-<section id="pola-dibuat-dengan-fungsi-matematis">
-<h3><strong>5. Pola Dibuat dengan Fungsi Matematis</strong><a class="headerlink" href="#pola-dibuat-dengan-fungsi-matematis" title="Link to this heading">#</a></h3>
-<p>Seluruh data adalah <strong>sinyal buatan (sintetis)</strong>, bukan rekaman dari mesin nyata. Angka-angka dihasilkan menggunakan persamaan matematis sehingga masing-masing kelas memiliki pola dasar yang sangat jelas. Tujuannya agar dataset menjadi standar benchmark internasional dalam penelitian <em>time series classification</em>.</p>
-</section>
-<section id="ada-noise-atau-gangguan-kecil-pada-tiap-sampel">
-<h3><strong>6. Ada Noise atau Gangguan Kecil pada Tiap Sampel</strong><a class="headerlink" href="#ada-noise-atau-gangguan-kecil-pada-tiap-sampel" title="Link to this heading">#</a></h3>
-<p>Meskipun pola dasar tiap kelas sama, setiap sampel diberi gangguan acak (<strong>Gaussian noise</strong>) agar lebih menyerupai sinyal pada mesin sungguhan. Noise ini membuat model tidak bisa menghafal pola mentah dan harus benar-benar belajar mengenali bentuk global sinyal.</p>
-<p>Kolom pertama menyimpan label kelas (1–6), sedangkan 60 kolom berikutnya adalah nilai time series.</p>
 </section>
 <section id="pemeriksaan-awal-struktur-data">
 <h3><strong>Pemeriksaan Awal Struktur Data</strong><a class="headerlink" href="#pemeriksaan-awal-struktur-data" title="Link to this heading">#</a></h3>
@@ -1362,13 +1362,6 @@ weighted avg       0.98      0.98      0.98       300
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-analisis"><strong>Tujuan Analisis</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation"><strong>Data Preparation</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upload-dataset-ke-google-colab"><strong>Upload Dataset ke Google Colab</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-path-file-dataset"><strong>Menentukan Path File Dataset</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-isi-file-zip-dataset"><strong>Eksplorasi Isi File ZIP Dataset</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membaca-data-training-dari-file-zip"><strong>Membaca Data Training dari File ZIP</strong></a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding-eksplorasi-data-eda"><strong>Data Understanding (Eksplorasi Data/EDA)</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jumlah-sampel-600-time-series"><strong>1. Jumlah Sampel: 600 Time-Series</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#panjang-tiap-time-series-60-data-point"><strong>2. Panjang Tiap Time-Series: 60 Data Point</strong></a></li>
@@ -1376,6 +1369,13 @@ weighted avg       0.98      0.98      0.98       300
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jumlah-data-per-kelas-100-time-series-tiap-kategori"><strong>4. Jumlah Data per Kelas: 100 Time-Series Tiap Kategori</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pola-dibuat-dengan-fungsi-matematis"><strong>5. Pola Dibuat dengan Fungsi Matematis</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ada-noise-atau-gangguan-kecil-pada-tiap-sampel"><strong>6. Ada Noise atau Gangguan Kecil pada Tiap Sampel</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation"><strong>Data Preparation</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upload-dataset-ke-google-colab"><strong>Upload Dataset ke Google Colab</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-path-file-dataset"><strong>Menentukan Path File Dataset</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-isi-file-zip-dataset"><strong>Eksplorasi Isi File ZIP Dataset</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membaca-data-training-dari-file-zip"><strong>Membaca Data Training dari File ZIP</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pemeriksaan-awal-struktur-data"><strong>Pemeriksaan Awal Struktur Data</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memuat-dan-memisahkan-dataset-load-split-dataset"><strong>Memuat dan Memisahkan Dataset (Load &amp; Split Dataset)</strong></a></li>
 </ul>
